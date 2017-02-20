@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edebf8fdb12c04b59b0fba01244c3032, type: 3}
+  m_Name: CustomPostprocessSettings
+  m_EditorClassIdentifier: 
+  m_buildPhasesFoldOut: 0
+  m_buildSettingsFoldOut: 0
+  m_otherSettingsFoldOut: 0
+  m_infoPlistFoldOut: 0
+  m_otherLinkerFlags: 0
+  m_frameworkFoldOut: 0
+  m_libraryFoldOut: 0
+  m_fileToReplaceFoldOut: 0
+  m_folderReferenceFoldOut: 0
+  isLower: 0
+  frameworkName:
+  - AddressBook
+  - AssetsLibrary
+  - CoreData
+  - CoreTelephony
+  - CoreText
+  - Security
+  - SafariServices
+  libraryName:
+  - libc++.dylib
+  - libz.dylib
+  otherLinkerFlags:
+  - -ObjC
+  ENABLE_BITCODE: 0
+  fileToReplace:
+  - fileName: UnityAppController.h
+    sourcePath: UnityAppController
+    destinationPath: Classes
+  - fileName: UnityAppController.mm
+    sourcePath: UnityAppController
+    destinationPath: Classes
+  folderToAdd:
+  - SDKFrameworks

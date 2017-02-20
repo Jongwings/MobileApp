@@ -1,0 +1,27 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_DirnksApp/Scripts/UI/SplashScreen/SplashScreen.cs">
+    <Files>
+      <File FileName="Assets/PostRecipe.cs" Line="7" Column="2" />
+      <File FileName="Assets/AddDrinkReceipe.cs" Line="7" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/SplashScreen/SplashScreen.cs" Line="415" Column="1" />
+      <File FileName="../../../../../../../Users/muthusamy/Desktop/Test/Test/Assets/Script/SocialMAnager.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/MainMenu/Common/PopUpMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/Network/InternetConnection.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/MainMenu/AppUpdatesPanel.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/SplashScreen/TryPanel.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/Utilities/OnScreenLogger.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Collections/Brand.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Collections/CollectionController.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Collections/CollectList.cs" Line="7" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Manager/AppManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Search/Ingredients/SearchIngrediantsBrand.cs" Line="45" Column="42" />
+      <File FileName="Assets/DropdownList.cs" Line="49" Column="45" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/SocialMAnager.cs" Line="75" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "61253268829",
+    "firebase_url": "https://sports-qwizz-8418626.firebaseio.com",
+    "project_id": "sports-qwizz-8418626",
+    "storage_bucket": "sports-qwizz-8418626.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61253268829:android:65e768434f76271c",
+        "android_client_info": {
+          "package_name": "com.sportswizz.sportsqwizz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61253268829-q1fht4rclnk6ds8972848n1rfdlc7u6j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sportswizz.sportsqwizz",
+            "certificate_hash": "C2028556E899234CA346F3A8E583C375BFE4FFF7"
+          }
+        },
+        {
+          "client_id": "61253268829-knaph0uqfafhdqc719hg9rrptpch30j4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAv8AeqxHGZ0dtEovPjEKz2rqJ0iuHbjY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61253268829-knaph0uqfafhdqc719hg9rrptpch30j4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "61253268829-gt8ff3j2r5ede55q0cld7h4jmlkrcsd4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sportswizz.sportsqwizz",
+                "app_store_id": "1141449749"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

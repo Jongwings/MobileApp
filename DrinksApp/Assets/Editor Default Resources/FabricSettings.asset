@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ad9ddc0e5b942a98ec392b434d39bd, type: 3}
+  m_Name: FabricSettings
+  m_EditorClassIdentifier: 
+  email: muthusamykb@gmail.com
+  rawToken: '{"access_token":"19565a8cc76b4e316cfa4826e1665c68224ab97fa4721a7d139596bcfd12760e","refresh_token":"1fbfcbe6926bae7d62c289c8c890556248553f11f36c7b6fae83250eb653838c","token_type":"bearer","expires_in":86400}'
+  organization:
+    Name: "muthusamy\u2019s Projects"
+    Id: 56e656f30872459b68000194
+    ApiKey: 043ece85648eb8257d6e802983f06ea22e9763ad
+    BuildSecret: 7679c1d25884bfca809bf9bbe7ce9d40a8e42e947e641036ac676fbef7a4582e
+  iconUrl: 
+  dashboardUrl: 
+  initialization: 0
+  flowSequence: 0
+  conflict: 
+  kit: 
+  installedKits:
+  - Name: Twitter
+    InstallationStatus: 1
+    Installed: 0
+    Enabled: 0
+    Meta:
+    - Key: TwitterKey
+      Value: hXpbk6w077H4Uqb5ZJMbW1lAu
+      Platform: android
+    - Key: TwitterKey
+      Value: hXpbk6w077H4Uqb5ZJMbW1lAu
+      Platform: ios
+    - Key: TwitterSecret
+      Value: zuolxvEpXo589UjFbpqIrxXAkwbIrNqfiuzvubOXN7nKZnSmYg
+      Platform: android
+    - Key: TwitterSecret
+      Value: zuolxvEpXo589UjFbpqIrxXAkwbIrNqfiuzvubOXN7nKZnSmYg
+      Platform: ios
+    - Key: ConfiguredTimestamp
+      Value: 1487208789
+      Platform: 
+    - Key: Dependencies
+      Value: '[{"name":"Tweet-Composer-Android","version":"2.0.0"},{"name":"Twitter-Core-Android","version":"2.0.0"},{"name":"Fabric-Android","version":"1.3.14"},{"name":"TwitterKit-Wrapper-Android","version":"0.1.0"},{"name":"TwitterKit-Deps-Android","version":"0.0.0"},{"name":"Gson-Android","version":"2.6.1"},{"name":"Converter-Gson-Android","version":"2.0.2"},{"name":"Picasso-Android","version":"2.5.2"},{"name":"Retrofit-Android","version":"2.0.2"},{"name":"Twitter-Text-Android","version":"1.13.0"},{"name":"OKHttp-Android","version":"3.2.0"},{"name":"OKIO-Android","version":"1.6.0"},{"name":"TwitterKit-Wrapper-iOS","version":"0.0.0"},{"name":"TwitterKit-iOS","version":"2.2.0"},{"name":"Fabric-iOS","version":"1.6.11"},{"name":"Twitter-Core-iOS","version":"2.2.0"}]'
+      Platform: 
