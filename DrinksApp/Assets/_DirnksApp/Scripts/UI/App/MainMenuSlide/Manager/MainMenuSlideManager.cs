@@ -18,6 +18,10 @@ public class MainMenuSlideManager : MonoBehaviour {
 	public GameObject RecipeRatingPanel;
 	public GameObject PostRecipePanel;
 
+	[Header ("Details Pages")]
+	public GameObject DetailsPanel;
+	public GameObject BrandDetailsPanel;
+
 	public RectTransform MainMenuSlidePanelRectTransform;
 
 	public static MainMenuSlideManager Instance;

@@ -545,6 +545,7 @@
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Game\PourAnimationController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Game\ServeController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Game\ShakeController.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\KnowYourDrink\BrandDetails\BrandDetails.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\KnowYourDrink\KYDBrand.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\KnowYourDrink\KYDBrandsController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Manager\AppMainMenuPanel.cs" />
@@ -612,7 +613,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="SampleClassLibrary">
- <HintPath>/Volumes/Data/Projects/2016/Raoul/Muthusamy/New/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

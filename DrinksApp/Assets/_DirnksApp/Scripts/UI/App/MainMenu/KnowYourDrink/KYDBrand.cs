@@ -37,5 +37,15 @@ public class KYDBrand : MonoBehaviour {
 	public void onclickBrand()
 	{
 		Debug.Log ("OnClick Brand ------>"+brand.brnad_name);
+		AppManager.Instance.BrandNameStr = brand.brnad_name;
+		AppManager.Instance.BrandImageStr = brand.brand_img;
+		AppManager.Instance.BrandHeaderTitle1 = brand.brand_title1;
+		AppManager.Instance.BrandHeaderTitle2 = brand.brand_title2;
+		AppManager.Instance.BrandHeaderTitle3 = brand.brand_title3;
+		AppManager.Instance.BrandHeaderStrText1 = brand.brand_des1;
+		AppManager.Instance.BrandHeaderStrText2 = brand.brand_des2;
+		AppManager.Instance.BrandHeaderStrText3 = brand.brand_des3;
+		MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
+		MainMenuSlideManager.Instance.BrandDetailsPanel.SetActive (true);;
 	}
 }

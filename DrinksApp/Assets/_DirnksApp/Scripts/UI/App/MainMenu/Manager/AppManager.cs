@@ -28,6 +28,18 @@ public class AppManager : MonoBehaviour {
 	public string RecipeRating;
 
 
+	[Header("Brand Details")]
+	public string BrandNameStr;
+	public string BrandImageStr;
+	public string BrandHeaderTitle1;
+	public string BrandHeaderTitle2;
+	public string BrandHeaderTitle3;
+	public string BrandHeaderStrText1;
+	public string BrandHeaderStrText2;
+	public string BrandHeaderStrText3;
+
+
+
 	// Use this for initialization
 	void Start () {
 		if (Instance == null) {
