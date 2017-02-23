@@ -2,10 +2,24 @@
 using System.Collections;
 
 public class AppManager : MonoBehaviour {
-	
+
+	[Header("Chivita Login")]
 	public string UserId;
 	public string username;
 
+	[Header("Chivita FB Login")]
+	public string fbUserName;
+	public string fbUserID;
+	public string fbUserEmailID;
+	public string fbUserFirstName;
+
+	[Header("Chivita Twitter Login")]
+	public string twitterUserName;
+	public string twitterUserID;
+	public string twitterUserEmailID;
+	public string twitterUserFirstName;
+
+	public GameObject SplashScreenPanel;
 	public GameObject EmailSighPanel;
 	public GameObject SighUpPanel;
 	public GameObject MainMenuPanel;
@@ -13,6 +27,7 @@ public class AppManager : MonoBehaviour {
 	public GameObject MainMenuSlideButton;
 	public GameObject ToggleButtons;
 	public PopUpMessage popUpMessage;
+	public LogoutPopUpMessage logoutPopUpMessage;
 
 	public static AppManager Instance;
 
@@ -58,6 +73,14 @@ public class AppManager : MonoBehaviour {
 
 		popUpMessage.PopUpPanelTwo (msg, msgType);
 		popUpMessage.gameObject.SetActive (true);
+	}
+
+	public void ShowMessage1 (string msg,  
+		LogoutPopUpMessage.eMessageType msgType = LogoutPopUpMessage.eMessageType.Normal)
+	{		
+
+		logoutPopUpMessage.PopUpPanelTwo (msg, msgType);
+		logoutPopUpMessage.gameObject.SetActive (true);
 	}
 	
 	// Update is called once per frame

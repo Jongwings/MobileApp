@@ -587,6 +587,7 @@
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Profile\ProfileHanduler.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\SocialMAnager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\AppUpdatesPanel.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\LogoutPopUpMessage.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\PopUpMessage.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\QuitAppPanel.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\Server\AppServerConstants.cs" />
@@ -671,7 +672,6 @@
      <None Include="Assets\Plugins\Android\twitter-core\res\values-de\values-de.xml" />
      <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__app_info_layout_border.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-hr\values-hr.xml" />
-     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-hu\values-hu.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-vi\values-vi.xml" />
      <None Include="Assets\ExternalPlugins\EasyMovieTexture\readme_License.txt" />
@@ -686,6 +686,7 @@
      <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__transparent.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed_light.xml" />
      <None Include="Assets\Plugins\Android\twitterkit-wrapper\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\FacebookSDK\SDK\Scripts\Canvas\Resources\JSSDKBindings.txt" />
      <None Include="Assets\JsonDotNet\ReadMe.txt" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-el\values-el.xml" />
@@ -709,14 +710,14 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="SampleClassLibrary">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
+ <Reference Include="Analytics">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Validator">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
  </Reference>
- <Reference Include="Analytics">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
+ <Reference Include="SampleClassLibrary">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,6 +17,7 @@ public class LogOutHanduler : MonoBehaviour {
 	public void OnclickLogOut()
 	{
 		MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
+		AppManager.Instance.SplashScreenPanel.SetActive (true);
 		AppManager.Instance.EmailSighPanel.SetActive (true);
 		AppManager.Instance.MainMenuPanel.SetActive (false);
 

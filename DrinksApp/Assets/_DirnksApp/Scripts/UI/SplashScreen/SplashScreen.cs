@@ -41,8 +41,8 @@ public class SplashScreen : MonoBehaviour {
 //	public Button SkipLoginButton;
 
 	// Email login
-	public Text emailId;
-	public Text password;
+	public Text LoginEmailId;
+	public Text LoginPassword;
 
 	[Header("InputField")]
 	public InputField emailSignInField;
@@ -55,13 +55,25 @@ public class SplashScreen : MonoBehaviour {
 	public GameObject SignInPanel;
 	public GameObject RegisterPanel;
 
-    void Awake ()
+	private string TwitterUserName;
+	private string TwitterUserId;
+	private string TwitterUserMailId;
+
+	public static SplashScreen Instance;
+
+
+	void OnEnable ()
     {
+		Debug.Log("Splash OnAwake Called");
+		this.LoginPassword.text = "";
+		this.LoginEmailId.text = "";
     }
 
 	// Use this for initialization
 	void Start () {
-
+		if (Instance == null) {
+			Instance = this;
+		}
 		//signInPanel.gameObject.SetActive (false);
 		tryPanel.gameObject.SetActive (false);
 //		tryModeButton.onClick.AddListener (OnClickTryModeButton);
@@ -71,6 +83,65 @@ public class SplashScreen : MonoBehaviour {
 
 		emailSignInField.onEndEdit.AddListener (OnEndEditEmail);
 		passwordSignInField.onEndEdit.AddListener (OnEndEditPassword);
+
+		if(!PlayerPrefs.HasKey("IsInitiatedFirsTime"))
+		{
+			PlayerPrefs.SetInt("IsInitiatedFirsTime",1);
+			PlayerPrefs.SetInt("isUserAlreadyLogin",0);
+			PlayerPrefs.SetInt("isUserLoginWithFBAPI",0);
+			PlayerPrefs.SetInt("isUserLoginWithTwitterAPI",0);
+			PlayerPrefs.SetString("UserName","");
+			PlayerPrefs.SetString("UserPassword","");
+			PlayerPrefs.SetString("UserId","");
+		}
+		else
+		{
+			if(PlayerPrefs.GetInt("isUserAlreadyLogin") == 1)
+			{
+				m_signText = PlayerPrefs.GetString("UserName");
+				m_passwordText = PlayerPrefs.GetString("UserPassword");
+				print("Normal Username :" + m_signText);
+				print("Normal Password :" + m_passwordText);
+				this.UserLoginAPICalls (m_signText,m_passwordText);
+
+			}
+			else if(PlayerPrefs.GetInt("isUserLoginWithFBAPI") == 1)
+			{
+				//FB Auto Login
+				AppManager.Instance.fbUserName = PlayerPrefs.GetString("FBUserName");
+				AppManager.Instance.fbUserID = PlayerPrefs.GetString("FBUserID");
+				AppManager.Instance.fbUserEmailID = PlayerPrefs.GetString("FBUserEmailID");
+				AppManager.Instance.fbUserFirstName = PlayerPrefs.GetString("FBUserFirstName");
+		
+				print("FB fbUserName :" + AppManager.Instance.fbUserName);
+				print("FB fbUserID :" + AppManager.Instance.fbUserID);
+				print("FB fbUserEmailID :" + AppManager.Instance.fbUserEmailID);
+				print("FB fbUserFirstName :" + AppManager.Instance.fbUserFirstName);
+
+				this.UserLoginWithFBAPICalls (AppManager.Instance.fbUserName, AppManager.Instance.fbUserID, AppManager.Instance.fbUserEmailID, AppManager.Instance.fbUserFirstName);
+
+			}
+			else if(PlayerPrefs.GetInt("isUserLoginWithTwitterAPI") == 1)
+			{
+				//Twitter Auto Login
+				AppManager.Instance.twitterUserName = PlayerPrefs.GetString("TwitterUserName");
+				AppManager.Instance.twitterUserID = PlayerPrefs.GetString("TwitterUserID");
+				AppManager.Instance.twitterUserEmailID = PlayerPrefs.GetString("TwitterUserEmailID");
+				AppManager.Instance.twitterUserFirstName = PlayerPrefs.GetString("TwitterUserFirstName");
+
+				print("Twitter twitterUserName :" + AppManager.Instance.twitterUserName);
+				print("Twitter twitterUserID :" + AppManager.Instance.twitterUserID);
+				print("Twitter twitterUserEmailID :" + AppManager.Instance.twitterUserEmailID);
+				print("Twitter twitterUserFirstName :" + AppManager.Instance.twitterUserFirstName);
+
+				UserLoginWithTWitterAPICalls (AppManager.Instance.twitterUserName, AppManager.Instance.twitterUserID, AppManager.Instance.twitterUserEmailID, AppManager.Instance.twitterUserFirstName);
+
+			}
+			else
+			{
+				Debug.Log("User not Login Yet");
+			}
+		}
 	}
 
 	void OnClickTryModeButton ()
@@ -101,12 +172,7 @@ public class SplashScreen : MonoBehaviour {
 
 	public void OnClickEmailSignInButton ()
 	{
-//		GenericAudioManager.PlayFX (GenericAudioManager.SFXSounds.Button_Click_1);
-//		signInPanel.gameObject.SetActive (true);
-		Debug.Log("Email Sign in ------->"+emailId.text); 
-		//UserLoginAPI (emailId.text, password.text);
-		//UserLoginAPICalls();
-		if (!string.IsNullOrEmpty (emailId.text) && !string.IsNullOrEmpty (password.text)) {
+		if (!string.IsNullOrEmpty (LoginEmailId.text) && !string.IsNullOrEmpty (LoginPassword.text)) {
 			UserLoginAPICalls (m_signText,m_passwordText);
 		} else {
 			AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
@@ -117,7 +183,6 @@ public class SplashScreen : MonoBehaviour {
 
 	public void UserLoginAPICalls(string username, string password)
 	{
-		AppManager.Instance.username = username;
 		string url = AppServerConstants.BaseURL + AppServerConstants.LOGIN;
 		Debug.Log ("Login ---:" + url+ "Username :"+username+"password :"+password);
 		WWWForm wwwForm = new WWWForm ();
@@ -136,11 +201,16 @@ public class SplashScreen : MonoBehaviour {
 			Debug.Log (www.text);
 			List<SeralizedClassServer.Login> result = new List<SeralizedClassServer.Login> ();
 			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.Login>> (www.text);
-			Debug.Log ("loginresult ----:" + result[0].returnvalue);
 			if (result[0].returnvalue == "Login Fail") {
+				PlayerPrefs.SetInt("isUserAlreadyLogin",0);
 				AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
 	
 			} else {
+				PlayerPrefs.SetInt("isUserAlreadyLogin",1);
+				PlayerPrefs.SetString("UserName",m_signText);
+				PlayerPrefs.SetString("UserPassword",m_passwordText);
+				PlayerPrefs.SetString("UserId",result[0].user_id);
+				AppManager.Instance.username = m_signText;
 				AppManager.Instance.UserId = result[0].user_id;
 				AppManager.Instance.EmailSighPanel.SetActive (false);
 				AppManager.Instance.IntroPanel.SetActive (true);
@@ -148,12 +218,14 @@ public class SplashScreen : MonoBehaviour {
 			}
 
 		} else {
+			PlayerPrefs.SetInt("isUserAlreadyLogin",0);
 			AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
 		}
 	}
 
 	void CallMainMenuPanel()
 	{
+		AppManager.Instance.SplashScreenPanel.SetActive (false);
 		AppManager.Instance.IntroPanel.SetActive (false);
 		AppManager.Instance.MainMenuPanel.SetActive (true);
 
@@ -208,14 +280,11 @@ public class SplashScreen : MonoBehaviour {
 	void OnEndEditEmail(string text)
 	{
 		m_signText = text;
-		Debug.Log("Email id --->"+text);
 	}
 
 	void OnEndEditPassword(string text)
 	{
 		m_passwordText = text;
-		Debug.Log("Password id --->"+text);
-
 	}
 
 	//FaceBook Login
@@ -328,6 +397,11 @@ public class SplashScreen : MonoBehaviour {
 	//"http://www.jongwings.com/chivita/login_fb.php?user_name=%@&fb_user_id=%@&email=%@&first_name=%@",self.aFBName,self.aFBUserID,self.aFBEmailID,self.aFBFirstName];
 	public void UserLoginWithFBAPICalls(string user_name, string fb_user_id, string email, string first_name)
 	{
+		AppManager.Instance.fbUserName = user_name;
+		AppManager.Instance.fbUserID = fb_user_id;
+		AppManager.Instance.fbUserEmailID = email;
+		AppManager.Instance.fbUserFirstName = first_name;
+
 		string url = AppServerConstants.BaseURL + AppServerConstants.FB_LOGIN;
 
 		WWWForm wwwForm = new WWWForm ();
@@ -343,9 +417,34 @@ public class SplashScreen : MonoBehaviour {
 	{
 		yield return www;
 		if (www.error == null) {
+
+
 			Debug.Log (www.text);
-			AppManager.Instance.EmailSighPanel.SetActive (false);
-			AppManager.Instance.MainMenuPanel.SetActive (true);
+			List<SeralizedClassServer.Login> result = new List<SeralizedClassServer.Login> ();
+			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.Login>> (www.text);
+			print("FB loginresult ----:" + result[0].returnvalue);
+			if (result[0].returnvalue == "Login Fail") {
+				PlayerPrefs.SetInt("isUserLoginWithFBAPI",0);
+				AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
+
+			} else {
+				print("FB loginUserId ----:" + result[0].user_id);
+
+				PlayerPrefs.SetInt("isUserLoginWithFBAPI",1);
+				PlayerPrefs.SetInt("isUserAlreadyLogin",0);
+				PlayerPrefs.SetInt("isUserLoginWithTwitterAPI",0);
+
+				PlayerPrefs.SetString("FBUserName",AppManager.Instance.fbUserName);
+				PlayerPrefs.SetString("FBUserID",AppManager.Instance.fbUserID);
+				PlayerPrefs.SetString("FBUserEmailID",AppManager.Instance.fbUserEmailID);
+				PlayerPrefs.SetString("FBUserFirstName",AppManager.Instance.fbUserFirstName);
+				AppManager.Instance.username = AppManager.Instance.fbUserName;
+				AppManager.Instance.UserId = result[0].user_id;
+				AppManager.Instance.EmailSighPanel.SetActive (false);
+				AppManager.Instance.IntroPanel.SetActive (true);
+				Invoke("CallMainMenuPanel", 3);//this will happen after 3 seconds
+
+			}
 		} else {
 			AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
 		}
@@ -378,14 +477,18 @@ public class SplashScreen : MonoBehaviour {
 
 	public void LoginComplete (TwitterSession session) {
 		// Start composer or request email
+
 		startRequestEmail();
 		string username = session.userName;
 		long id = session.id;
+		TwitterUserName = session.userName;
+		TwitterUserId = session.id.ToString();
 
 	}
 
 	public void LoginFailure (ApiError error) {
 		//LoadingIndicatorManager.Hide();
+		print("Twitter code=" + error.code + " msg=" + error.message);
 		UnityEngine.Debug.Log ("code=" + error.code + " msg=" + error.message);
 	}
 
@@ -406,11 +509,65 @@ public class SplashScreen : MonoBehaviour {
 	public void requestEmailComplete (string email) {
 		// Save email
 		string Email = email;
-		UnityEngine.Debug.Log ("Twitter Email ---:"+Email);
+		UserLoginWithTWitterAPICalls (TwitterUserName, TwitterUserId, Email, TwitterUserName);
+
 	}
 
 	public void requestEmailFailure (ApiError error) {
+		print("Twitter code=" + error.code + " msg=" + error.message);
 		UnityEngine.Debug.Log ("code=" + error.code + " msg=" + error.message);
+	}
+
+	public void UserLoginWithTWitterAPICalls(string user_name, string twitter_id, string email, string first_name)
+	{
+		AppManager.Instance.twitterUserName = user_name;
+		AppManager.Instance.twitterUserID = twitter_id;
+		AppManager.Instance.twitterUserEmailID = email;
+		AppManager.Instance.twitterUserFirstName = first_name;
+
+		string url = AppServerConstants.BaseURL + AppServerConstants.TW_LOGIN;
+
+		WWWForm wwwForm = new WWWForm ();
+		wwwForm.AddField ("user_name", user_name);
+		wwwForm.AddField ("twitter_id", twitter_id);
+		wwwForm.AddField ("email", email);
+		wwwForm.AddField ("first_name", first_name);
+		WWW www = new WWW (url, wwwForm);
+		StartCoroutine (LoginWithTwitterToServerCallback (www));
+	}
+
+	IEnumerator LoginWithTwitterToServerCallback (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			List<SeralizedClassServer.Login> result = new List<SeralizedClassServer.Login> ();
+			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.Login>> (www.text);
+			print("Twitter loginresult ----:" + result[0].returnvalue);
+			if (result[0].returnvalue == "Login Fail") {
+				PlayerPrefs.SetInt("isUserLoginWithTwitterAPI",0);
+				AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
+
+			} else {
+				print("Twitter loginUserId ----:" + result[0].user_id);
+
+				PlayerPrefs.SetInt("isUserLoginWithTwitterAPI",1);
+				PlayerPrefs.SetInt("isUserLoginWithFBAPI",0);
+				PlayerPrefs.SetInt("isUserAlreadyLogin",0);
+				PlayerPrefs.SetString("TwitterUserName",AppManager.Instance.twitterUserName);
+				PlayerPrefs.SetString("TwitterUserID",AppManager.Instance.twitterUserID);
+				PlayerPrefs.SetString("TwitterUserEmailID",AppManager.Instance.twitterUserEmailID);
+				PlayerPrefs.SetString("TwitterUserFirstName",AppManager.Instance.twitterUserFirstName);
+				AppManager.Instance.username = AppManager.Instance.twitterUserName;
+				AppManager.Instance.UserId = result[0].user_id;
+				AppManager.Instance.EmailSighPanel.SetActive (false);
+				AppManager.Instance.IntroPanel.SetActive (true);
+				Invoke("CallMainMenuPanel", 3);//this will happen after 3 seconds
+
+			}
+		} else {
+			AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
+		}
 	}
 
 }
