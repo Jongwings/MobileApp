@@ -35,4 +35,10 @@ public class AppServerConstants  {
 	//My Creation
 	public const string MYCREATIONS_Recipe = "app/my_creation.php?";
 
+	//Search Drinks
+	public const string Search_Drinks_Recipe = "app/search-recipe.php?";
+
+	//Search Ingredients
+	public const string Search_Ingredients_Recipe = "app/ingredients-search.php?";
+
 }

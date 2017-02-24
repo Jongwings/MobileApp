@@ -575,6 +575,10 @@
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\Ingredients\SearchIngrediantsBrand.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\Ingredients\SearchIngrediantsBrandsController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\SearchHanduler.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\SearchIngredientsPanel\SearchIngredientsPanelController.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\SearchIngredientsPanel\SearchIngredientsRecipes.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\SearchPanel\SearchPanelController.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\SearchPanel\SearchPanelRecipes.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Creation\MyCreationDrinkBrand.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Creation\MyCreationDrinkBrandsController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Favourite\MyFavouriteDrinkBrand.cs" />

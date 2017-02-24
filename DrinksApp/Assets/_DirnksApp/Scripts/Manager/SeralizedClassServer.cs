@@ -62,6 +62,27 @@ public class SeralizedClassServer
 	}
 
 	[Serializable]
+	public class SearchPanelDrinksList
+	{
+		public string recipes_name { get; set; }
+		public string recipes_id { get; set; }
+		public string rating { get; set; }
+		public string ingredients { get; set; }
+		public string preparation { get; set; }
+		public string recipes_image { get; set; }
+	}
+	[Serializable]
+	public class SearchPanelIngredientsList
+	{
+		public string recipes_name { get; set; }
+		public string recipes_id { get; set; }
+		public int rating { get; set; }
+		public string ingredients { get; set; }
+		public string preparation { get; set; }
+		public string recipes_image { get; set; }
+	}
+
+	[Serializable]
 	public class MyFavouriteRecipes
 	{
 		public string recipes_name { get; set; }

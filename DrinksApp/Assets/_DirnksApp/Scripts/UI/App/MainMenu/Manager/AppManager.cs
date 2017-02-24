@@ -53,6 +53,11 @@ public class AppManager : MonoBehaviour {
 	public string BrandHeaderStrText2;
 	public string BrandHeaderStrText3;
 
+	[Header("Search")]
+	public string searchWord;
+	public bool isSearchDrinksWord;
+	public bool isSearchIngredientsWord;
+
 
 
 	// Use this for initialization
