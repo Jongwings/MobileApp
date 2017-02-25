@@ -65,6 +65,7 @@ public class AppManager : MonoBehaviour {
 
 	public bool isForCollectionRecipe;
 
+	public bool isPopUpForPhotoUpload;
 
 
 	// Use this for initialization

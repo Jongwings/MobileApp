@@ -64,34 +64,61 @@ public class LogoutPopUpMessage : MonoBehaviour {
 	void OnClickOkButton ()
 	{
 		//GenericAudioManager.PlayFX (GenericAudioManager.SFXSounds.Button_Click_1);
+		if(AppManager.Instance.isPopUpForPhotoUpload == false)
+		{
+			if (m_callback != null) {
+				m_callback ();
+				m_callback = null;
+			}
 
-		if (m_callback != null) {
-			m_callback ();
-			m_callback = null;
+			ClosePopUp ();
+			PlayerPrefs.DeleteAll();
+			AppManager.Instance.UserId = "";
+			AppManager.Instance.username = "";
+			SplashScreen.Instance.LoginEmailId.text = "";
+			SplashScreen.Instance.LoginPassword.text = "";
+			MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
+			AppManager.Instance.SplashScreenPanel.SetActive (true);
+			AppManager.Instance.EmailSighPanel.SetActive (true);
+			AppManager.Instance.MainMenuPanel.SetActive (false);
+		}
+		else
+		{
+			if (m_callback != null) {
+				m_callback ();
+				m_callback = null;
+			}
+
+			ClosePopUp ();
 		}
 
-		ClosePopUp ();
-		PlayerPrefs.DeleteAll();
-		AppManager.Instance.UserId = "";
-		AppManager.Instance.username = "";
-		SplashScreen.Instance.LoginEmailId.text = "";
-		SplashScreen.Instance.LoginPassword.text = "";
-		MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
-		AppManager.Instance.SplashScreenPanel.SetActive (true);
-		AppManager.Instance.EmailSighPanel.SetActive (true);
-		AppManager.Instance.MainMenuPanel.SetActive (false);
 	}
 
 	void OnClickNoButton()
 	{
-		if (m_callback != null) {
-			m_callback ();
-			m_callback = null;
+		if(AppManager.Instance.isPopUpForPhotoUpload == false)
+		{
+			if (m_callback != null) {
+				m_callback ();
+				m_callback = null;
+			}
+
+			ClosePopUp ();
+			MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
+			MainMenuSlideManager.Instance.homeScreenPanel.SetActive (true);
+		}
+		else
+		{
+			if (m_callback != null) {
+				m_callback ();
+				m_callback = null;
+			}
+
+			ClosePopUp ();
+			MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(false);
+			MainMenuSlideManager.Instance.InnerPanel.SetActive (false);
 		}
 
-		ClosePopUp ();
-		MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
-		MainMenuSlideManager.Instance.homeScreenPanel.SetActive (true);
 
 	}
 

@@ -99,6 +99,7 @@ public class MainMenuSlideManager : MonoBehaviour {
 //		profilePanel.SetActive (false);
 //		creditsPanel.SetActive (false);
 //		FavouriatesPanel.SetActive (false);
+		AppManager.Instance.isPopUpForPhotoUpload = false;
 		AppManager.Instance.ShowMessage1("Are you sure want to Log Out?",LogoutPopUpMessage.eMessageType.Normal);
 
 	}
