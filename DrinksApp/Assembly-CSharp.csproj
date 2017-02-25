@@ -570,6 +570,8 @@
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Manager\AppManager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\RecipeDetails\RateRecipeController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\RecipeDetails\RecipeDetailsController.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\RecipesWithThisBrand\BrandRecipes.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\RecipesWithThisBrand\RecipesWithThisBrandController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\Drink\SearchDrinkBrand.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\Drink\SearchDrinkBrandsController.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenu\Search\Ingredients\SearchIngrediantsBrand.cs" />

@@ -21,6 +21,7 @@ public class MainMenuSlideManager : MonoBehaviour {
 	[Header ("Details Pages")]
 	public GameObject DetailsPanel;
 	public GameObject BrandDetailsPanel;
+	public GameObject RecipesWithThisDrinkPanel;
 
 	public RectTransform MainMenuSlidePanelRectTransform;
 

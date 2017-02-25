@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using UnityEngine.UI;
 using Q.Utils;
 
-public class CollectionController : MonoBehaviour {
+public class RecipesWithThisBrandController : MonoBehaviour {
 
 	public class CollectionDictionary
 	{
@@ -14,15 +14,10 @@ public class CollectionController : MonoBehaviour {
 
 	public GameObject collectionBrandPrefab;
 	public GameObject collectionReceipePrefab;
-	public GameObject FlavourReceipePrefab;
-
-	public GameObject flavourPanel;
-
 	public Transform collectionBrandScrollTransform;
 	public Transform collectionReceipeScrollTrandform;
-	public Transform flavourScrollTrandform;
 
-
+	public Text BrandName;
 
 	// Use this for initialization
 	void Start () {
@@ -43,7 +38,11 @@ public class CollectionController : MonoBehaviour {
 
 	void OnEnable()
 	{
-		flavourPanel.SetActive (false);
+		if(AppManager.Instance.isForCollectionRecipe == false)
+			BrandName.text = AppManager.Instance.BrandNameStr;
+		else
+			BrandName.text = AppManager.Instance.collectionName;
+		
 		CollectionsAPICalls ();
 		CollectionReceipeAPICalls ();
 	}
@@ -51,6 +50,17 @@ public class CollectionController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void onClickBackBtn()
+	{
+		if(AppManager.Instance.isForCollectionRecipe == false)
+			this.gameObject.SetActive(false);
+		else
+		{
+			MainMenuSlideManager.Instance.DetailsPanel.SetActive(false);
+			this.gameObject.SetActive(false);
+		}
 	}
 
 	public void CollectionsAPICalls()
@@ -95,14 +105,11 @@ public class CollectionController : MonoBehaviour {
 
 	public void CollectionReceipeAPICalls()
 	{
-		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_COLLECTION;
-
+		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_Recipe;
 
 		WWWForm wwwForm = new WWWForm ();
-
-		//		wwwForm.AddField ("user_name", "daniel");
-		//		wwwForm.AddField ("password", "test123");
-		WWW www = new WWW (url);
+		wwwForm.AddField ("brand_id", AppManager.Instance.BrandId);
+		WWW www = new WWW (url, wwwForm);
 		StartCoroutine (CollectionReceipeServerCallback (www));
 	}
 
@@ -112,8 +119,8 @@ public class CollectionController : MonoBehaviour {
 		if (www.error == null) {
 			Debug.Log (www.text);
 			string temp = www.text;
-			List<SeralizedClassServer.CollectionList> categoryList = new List<SeralizedClassServer.CollectionList> ();
-			categoryList = JsonConvert.DeserializeObject<List<SeralizedClassServer.CollectionList>> (temp);
+			List<SeralizedClassServer.BrandRecipesList> categoryList = new List<SeralizedClassServer.BrandRecipesList> ();
+			categoryList = JsonConvert.DeserializeObject<List<SeralizedClassServer.BrandRecipesList>> (temp);
 
 			//Debug.Log (JsonConvert.SerializeObject (newCategory));
 			DisplayCollectionBrands1 (categoryList);
@@ -165,58 +172,18 @@ public class CollectionController : MonoBehaviour {
 ////		TestingAppManager.Instance.ShowLoading (false);
 //	} 
 
-	void DisplayCollectionBrands1(List<SeralizedClassServer.CollectionList> collectionBrandList)
+	void DisplayCollectionBrands1(List<SeralizedClassServer.BrandRecipesList> collectionBrandList)
 	{
 		clearGrid(collectionReceipeScrollTrandform);
 
 		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
 		int count = 0;
-		foreach(SeralizedClassServer.CollectionList brand in collectionBrandList)
+		foreach(SeralizedClassServer.BrandRecipesList brand in collectionBrandList)
 		{
 			collectionBrandGameObject[count] = Instantiate(collectionReceipePrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionReceipeScrollTrandform.transform, false);
-			collectionBrandGameObject [count].transform.GetComponent<CollectList> ().InitBrand (brand, this);
+			collectionBrandGameObject [count].transform.GetComponent<BrandRecipes> ().InitBrand (brand, this);
 			count++;
 		}
 	}
-
-	public void FlavourAPICalls()
-	{
-		flavourPanel.SetActive (true);
-		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_Recipe;
-
-		WWWForm wwwForm = new WWWForm ();
-		wwwForm.AddField ("user_id", AppManager.Instance.UserId);
-		WWW www = new WWW (url, wwwForm);
-		StartCoroutine (FlavourServerCallback (www));
-	}
-
-	IEnumerator FlavourServerCallback (WWW www)
-	{
-		yield return www;
-		if (www.error == null) {
-			Debug.Log (www.text);
-			string temp = www.text;
-			List<SeralizedClassServer.SearchDrinkListOfRecipes> categoryList = new List<SeralizedClassServer.SearchDrinkListOfRecipes> ();
-			categoryList = JsonConvert.DeserializeObject<List<SeralizedClassServer.SearchDrinkListOfRecipes>> (temp);
-
-			//Debug.Log (JsonConvert.SerializeObject (newCategory));
-			DisplayFlavourBrands (categoryList);
-		}
-	}
-
-	void DisplayFlavourBrands(List<SeralizedClassServer.SearchDrinkListOfRecipes> collectionBrandList)
-	{
-		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
-		int count = 0;
-		foreach(SeralizedClassServer.SearchDrinkListOfRecipes brand in collectionBrandList)
-		{
-			collectionBrandGameObject[count] = Instantiate(FlavourReceipePrefab,  Vector3.zero, Quaternion.identity) as GameObject;
-			collectionBrandGameObject [count].transform.SetParent (flavourScrollTrandform.transform, false);
-			collectionBrandGameObject [count].transform.GetComponent<SearchDrinkBrand> ().InitBrand (brand);
-			count++;
-		}
-	}
-
-
 }

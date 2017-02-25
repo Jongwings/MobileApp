@@ -17,7 +17,6 @@ public class CollectList : MonoBehaviour {
 		brandName.text = collectionBrand.collection_name;
 		StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+collectionBrand.recipes_image);
 	}
-
 	IEnumerator LoadImage (string url)
 	{
 		WWW image = new WWW (url);

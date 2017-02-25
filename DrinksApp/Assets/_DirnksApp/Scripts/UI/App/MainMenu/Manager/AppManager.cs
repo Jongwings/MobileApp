@@ -45,6 +45,7 @@ public class AppManager : MonoBehaviour {
 
 	[Header("Brand Details")]
 	public string BrandNameStr;
+	public string BrandId;
 	public string BrandImageStr;
 	public string BrandHeaderTitle1;
 	public string BrandHeaderTitle2;
@@ -57,6 +58,12 @@ public class AppManager : MonoBehaviour {
 	public string searchWord;
 	public bool isSearchDrinksWord;
 	public bool isSearchIngredientsWord;
+
+	[Header("Collections")]
+	public string collectionName;
+	public string collectionID;
+
+	public bool isForCollectionRecipe;
 
 
 

@@ -36,6 +36,16 @@ public class HomeBrand : MonoBehaviour {
 
 	public void onclickBrand()
 	{
-		//Debug.Log ("OnClick Brand ------>"+brand.collection_name);
+		AppManager.Instance.BrandId = brand.brand_id;
+		AppManager.Instance.BrandNameStr = brand.brnad_name;
+		AppManager.Instance.BrandImageStr = brand.brand_img;
+		AppManager.Instance.BrandHeaderTitle1 = brand.brand_title1;
+		AppManager.Instance.BrandHeaderTitle2 = brand.brand_title2;
+		AppManager.Instance.BrandHeaderTitle3 = brand.brand_title3;
+		AppManager.Instance.BrandHeaderStrText1 = brand.brand_des1;
+		AppManager.Instance.BrandHeaderStrText2 = brand.brand_des2;
+		AppManager.Instance.BrandHeaderStrText3 = brand.brand_des3;
+		MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
+		MainMenuSlideManager.Instance.BrandDetailsPanel.SetActive (true);;
 	}
 }
