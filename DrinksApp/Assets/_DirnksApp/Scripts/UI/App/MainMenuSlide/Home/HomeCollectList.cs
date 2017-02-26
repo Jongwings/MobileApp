@@ -36,6 +36,10 @@ public class HomeCollectList : MonoBehaviour {
 
 	public void onclickBrand()
 	{
-		Debug.Log ("OnClick Brand ------>"+brand.collection_name);
+		AppManager.Instance.isForCollectionRecipe = true;
+		AppManager.Instance.BrandId = brand.collection_id;
+		AppManager.Instance.collectionName = brand.collection_name;
+		MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
+		MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive (true);
 	}
 }

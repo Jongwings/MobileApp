@@ -21,6 +21,7 @@ public class MainMenuSlideManager : MonoBehaviour {
 	[Header ("Details Pages")]
 	public GameObject DetailsPanel;
 	public GameObject BrandDetailsPanel;
+	public GameObject RecipesWithThisDrinkPanel;
 
 	public RectTransform MainMenuSlidePanelRectTransform;
 
@@ -94,12 +95,13 @@ public class MainMenuSlideManager : MonoBehaviour {
 
 	public void OnclickLogout()
 	{
-		LogOutPanel.SetActive (true);
-		profilePanel.SetActive (false);
-		creditsPanel.SetActive (false);
-		FavouriatesPanel.SetActive (false);
+//		LogOutPanel.SetActive (true);
+//		profilePanel.SetActive (false);
+//		creditsPanel.SetActive (false);
+//		FavouriatesPanel.SetActive (false);
+		AppManager.Instance.isPopUpForPhotoUpload = false;
+		AppManager.Instance.ShowMessage1("Are you sure want to Log Out?",LogoutPopUpMessage.eMessageType.Normal);
 
-		MainMenuSlideOnclickHide ();
 	}
 
 	public void MainMenuSlideOnclickShow()

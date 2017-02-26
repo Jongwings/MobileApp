@@ -48,9 +48,8 @@ public class SeralizedClassServer
 		public string collection_name;
 		public string recipes_image;
 	}
-
 	[Serializable]
-	public class SearchDrinkListOfRecipes
+	public class BrandRecipesList
 	{
 		public string recipes_id { get; set; }
 		public string recipes_name { get; set; }
@@ -58,6 +57,41 @@ public class SeralizedClassServer
 		public string ingredients { get; set; }
 		public string preparation { get; set; }
 		public int rating { get; set; }
+		public string recipes_image { get; set; }
+
+	}
+
+	[Serializable]
+	public class SearchDrinkListOfRecipes
+	{
+		public string returnvalue { get; set; }
+		public string recipes_id { get; set; }
+		public string recipes_name { get; set; }
+		public string brand_name { get; set; }
+		public string ingredients { get; set; }
+		public string preparation { get; set; }
+		public int rating { get; set; }
+		public string recipes_image { get; set; }
+	}
+
+	[Serializable]
+	public class SearchPanelDrinksList
+	{
+		public string recipes_name { get; set; }
+		public string recipes_id { get; set; }
+		public string rating { get; set; }
+		public string ingredients { get; set; }
+		public string preparation { get; set; }
+		public string recipes_image { get; set; }
+	}
+	[Serializable]
+	public class SearchPanelIngredientsList
+	{
+		public string recipes_name { get; set; }
+		public string recipes_id { get; set; }
+		public int rating { get; set; }
+		public string ingredients { get; set; }
+		public string preparation { get; set; }
 		public string recipes_image { get; set; }
 	}
 

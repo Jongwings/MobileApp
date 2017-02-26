@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 using Q.Utils;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Collections;
 
 public class BrandDetails : MonoBehaviour {
 
@@ -56,7 +59,35 @@ public class BrandDetails : MonoBehaviour {
 	}
 	public void OnClickRecipesWithThisDrinkButton()
 	{
+		CollectionReceipeAPICalls();
+	}
 
+	public void CollectionReceipeAPICalls()
+	{
+		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_Recipe;
+
+		WWWForm wwwForm = new WWWForm ();
+		wwwForm.AddField ("brand_id", AppManager.Instance.BrandId);
+		WWW www = new WWW (url, wwwForm);
+		StartCoroutine (CollectionReceipeServerCallback (www));
+	}
+
+	IEnumerator CollectionReceipeServerCallback (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			List<SeralizedClassServer.Login> result = new List<SeralizedClassServer.Login> ();
+			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.Login>> (www.text);
+			if (result[0].returnvalue == "No records found") {
+				AppManager.Instance.ShowMessage("No Records Found",PopUpMessage.eMessageType.Normal);	
+			}
+			else
+			{
+				AppManager.Instance.isForCollectionRecipe = false;
+				MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+			}
+		}
 	}
 
 	void Update () {

@@ -7,6 +7,7 @@ public class AppServerConstants  {
 	//Login
 	public const string LOGIN = "app/login.php?";
 	public const string FB_LOGIN = "login_fb.php?";
+	public const string TW_LOGIN = "login_twitter.php?";
 	public const string ADD_USER = "app/add-user.php?name=%@&email=%@&usr_name=%@&passw=%@&cnf_pass=%@";
 	//profile
 	public const string LIST_USER = "app/list-user.php?user_id=%@";
@@ -31,8 +32,15 @@ public class AppServerConstants  {
 	//My Favourite
 	public const string FAVOURITE_Recipe = "app/favourite-recipe.php?";
 
-	//My Favourite
-//	public const string MYCREATIONS_Recipe = "app/my_creation.php?";
-	public const string MYCREATIONS_Recipe = "app/favourite-recipe.php?";
+	//My Creation
+	public const string MYCREATIONS_Recipe = "app/my_creation.php?";
+
+	//Search Drinks
+	public const string Search_Drinks_Recipe = "app/search-recipe.php?";
+
+	//Search Ingredients
+	public const string Search_Ingredients_Recipe = "app/ingredients-search.php?";
+
+
 
 }

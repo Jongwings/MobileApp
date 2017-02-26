@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Ingeridents</key>
+		<string>	•	1 oz Gin
+	•	CHIVITA 100% Orange and Pineapple juice
+	•	Ice cubes
+	•	A slice of orange</string>
+		<key>Preparation</key>
+		<string>Mix all condiments in a glass and use the slice of orange as a garnish.</string>
+		<key>RecipeBrandName</key>
+		<string>CHIVITA 100%</string>
+		<key>RecipeID</key>
+		<string>1</string>
+		<key>RecipeImage</key>
+		<string>Recipes1.png</string>
+		<key>RecipeName</key>
+		<string>CHIVITA ORANGE BLOSSOM</string>
+	</dict>
+	<dict>
+		<key>Ingeridents</key>
+		<string>	•	1 oz Rum
+	•	Chivita 100% Apple juice
+	•	Ice cubes
+	•	A slice of apple</string>
+		<key>Preparation</key>
+		<string>Mix all condiments in a glass and use the slice of apple as a garnish.</string>
+		<key>RecipeBrandName</key>
+		<string>CHIVITA 100%</string>
+		<key>RecipeID</key>
+		<string>2</string>
+		<key>RecipeImage</key>
+		<string>Recipes2.png</string>
+		<key>RecipeName</key>
+		<string>CHIVITA APPLE ESSENCE</string>
+	</dict>
+	<dict>
+		<key>Ingeridents</key>
+		<string>	•	1 oz Vodka
+	•	Chivita 100% Pineapple juice
+	•	Ice cubes
+	•	A slice of pineapple</string>
+		<key>Preparation</key>
+		<string>Mix all condiments in a glass and use the slice of pineapple as a garnish.</string>
+		<key>RecipeBrandName</key>
+		<string>CHIVITA 100%</string>
+		<key>RecipeID</key>
+		<string>3</string>
+		<key>RecipeImage</key>
+		<string>Recipes3.png</string>
+		<key>RecipeName</key>
+		<string>CHIVITA PINEAPPLE PUNCH</string>
+	</dict>
+	<dict>
+		<key>Ingeridents</key>
+		<string>	•	1 oz Tequila
+	•	Chivita 100% Orange and Mango juice
+	•	Ice cubes
+	•	A slice of Orange</string>
+		<key>Preparation</key>
+		<string>Mix all condiments in a glass and use the slice of orange as a garnish.</string>
+		<key>RecipeBrandName</key>
+		<string>CHIVITA 100%</string>
+		<key>RecipeID</key>
+		<string>4</string>
+		<key>RecipeImage</key>
+		<string>Recipes4.png</string>
+		<key>RecipeName</key>
+		<string>CHIVITA MANGO MADNESS</string>
+	</dict>
+	<dict>
+		<key>Ingeridents</key>
+		<string>	•	1 cup ice (crushed)
+	•	1 shot rum
+	•	1 shot rum (coconut flavoured)
+	•	1 shot vodka
+	•	1 shot gin
+	•	2 shot CHIVITA orange juice
+	•	1 shot CHIVITA pineapple juice
+	•	1 shot grenadine syrup
+	•	1 shot rum (proof)
+	•	1 orange (slice optional)
+	•	1 lime (slice optional)</string>
+		<key>Preparation</key>
+		<string>1. Fill a hurricane glass with ice. Pour in the rum, coconut rum, vodka, gin, triple sec, orange juice, pineapple juice, and grenadine. Stir well with a bar spoon, then pour the rum over the back of the spoon to float the liquor on top of the drink. Garnish the glass with orange, lime, and a cherry.
+2. Sip with a straw from the bottom for a ‘sneak up on you’ punch or sip from the top for a ‘knock you down’ twister.</string>
+		<key>RecipeBrandName</key>
+		<string>CHIVITA ACTIVE</string>
+		<key>RecipeID</key>
+		<string>5</string>
+		<key>RecipeImage</key>
+		<string>Recipes5.png</string>
+		<key>RecipeName</key>
+		<string>CHIVITA HURRICANE</string>
+	</dict>
+	<dict>
+		<key>Ingeridents</key>
+		<string>	•	4 shots CHIVITA orange juice and mango
+	•	2 shot CHIVITA pineapple juice
+	•	1 1/2 shot vodka
+	•	1 shot grenadine
+	•	A dash of Tobasco sauce</string>
+		<key>Preparation</key>
+		<string>1. Shake all spirits with 1/2 shaker of ice, pour it in a long glass and follow by 1 shot grenadine syrup and a dash of Tobasco on the drink
+2. Garnish with slice pineapple on the rim.</string>
+		<key>RecipeBrandName</key>
+		<string>CHIVITA ACTIVE</string>
+		<key>RecipeID</key>
+		<string>6</string>
+		<key>RecipeImage</key>
+		<string>Recipes6.png</string>
+		<key>RecipeName</key>
+		<string>CHIVITA FRUITY FOREVER</string>
+	</dict>
+	<dict>
+		<key>Ingeridents</key>
+		<string>	•	100 ml CHIVITA pineapple juice
+	•	200 ml tonic water
+	•	Some Crushed ice
+	•	4 shots vodka
+	•	Half Pineapple</string>
+		<key>Preparation</key>
+		<string>Put all ingredients into a shaker, but make the pineapple into chunks Then, shake, and serve instantly.</string>
+		<key>RecipeBrandName</key>
+		<string>CHIVITA ACTIVE</string>
+		<key>RecipeID</key>
+		<string>7</string>
+		<key>RecipeImage</key>
+		<string>Recipes7.png</string>
+		<key>RecipeName</key>
+		<string>CHIVITA’S PINEAPPLE PARTY</string>
+	</dict>
+</array>
+</plist>

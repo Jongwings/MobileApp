@@ -36,6 +36,19 @@ public class Brand : MonoBehaviour {
 
 	public void onclickBrand()
 	{
-		Debug.Log ("OnClick Brand ------>"+brand.collection_name);
+		Debug.Log("Collection Name :" + brand.collection_name);
+		AppManager.Instance.isForCollectionRecipe = true;
+		AppManager.Instance.BrandId = brand.collection_id;
+		AppManager.Instance.collectionName = brand.collection_name;
+		MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
+		if(MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.activeSelf)
+		{
+			MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(false);
+			MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+		}
+		else
+		{
+			MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+		}
 	}
 }

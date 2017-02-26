@@ -37,6 +37,7 @@ public class KYDBrand : MonoBehaviour {
 	public void onclickBrand()
 	{
 		Debug.Log ("OnClick Brand ------>"+brand.brnad_name);
+		AppManager.Instance.BrandId = brand.brand_id;
 		AppManager.Instance.BrandNameStr = brand.brnad_name;
 		AppManager.Instance.BrandImageStr = brand.brand_img;
 		AppManager.Instance.BrandHeaderTitle1 = brand.brand_title1;

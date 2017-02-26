@@ -30,6 +30,17 @@ public class CollectionController : MonoBehaviour {
 
 	}
 
+	void clearGrid(Transform aTransform)
+	{
+		foreach (Transform item in aTransform.transform)
+		{
+			if (item != null)
+			{
+				Destroy(item.gameObject);
+			}
+		}
+	}
+
 	void OnEnable()
 	{
 		flavourPanel.SetActive (false);
@@ -70,6 +81,7 @@ public class CollectionController : MonoBehaviour {
 
 	void DisplayCollectionBrands(List<SeralizedClassServer.CollectionBrand> collectionBrandList)
 	{
+		clearGrid(collectionBrandScrollTransform);
 		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
 		int count = 0;
 		foreach(SeralizedClassServer.CollectionBrand brand in collectionBrandList)
@@ -155,6 +167,8 @@ public class CollectionController : MonoBehaviour {
 
 	void DisplayCollectionBrands1(List<SeralizedClassServer.CollectionList> collectionBrandList)
 	{
+		clearGrid(collectionReceipeScrollTrandform);
+
 		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
 		int count = 0;
 		foreach(SeralizedClassServer.CollectionList brand in collectionBrandList)

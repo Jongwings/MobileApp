@@ -2,10 +2,24 @@
 using System.Collections;
 
 public class AppManager : MonoBehaviour {
-	
+
+	[Header("Chivita Login")]
 	public string UserId;
 	public string username;
 
+	[Header("Chivita FB Login")]
+	public string fbUserName;
+	public string fbUserID;
+	public string fbUserEmailID;
+	public string fbUserFirstName;
+
+	[Header("Chivita Twitter Login")]
+	public string twitterUserName;
+	public string twitterUserID;
+	public string twitterUserEmailID;
+	public string twitterUserFirstName;
+
+	public GameObject SplashScreenPanel;
 	public GameObject EmailSighPanel;
 	public GameObject SighUpPanel;
 	public GameObject MainMenuPanel;
@@ -13,6 +27,7 @@ public class AppManager : MonoBehaviour {
 	public GameObject MainMenuSlideButton;
 	public GameObject ToggleButtons;
 	public PopUpMessage popUpMessage;
+	public LogoutPopUpMessage logoutPopUpMessage;
 
 	public static AppManager Instance;
 
@@ -30,6 +45,7 @@ public class AppManager : MonoBehaviour {
 
 	[Header("Brand Details")]
 	public string BrandNameStr;
+	public string BrandId;
 	public string BrandImageStr;
 	public string BrandHeaderTitle1;
 	public string BrandHeaderTitle2;
@@ -38,6 +54,18 @@ public class AppManager : MonoBehaviour {
 	public string BrandHeaderStrText2;
 	public string BrandHeaderStrText3;
 
+	[Header("Search")]
+	public string searchWord;
+	public bool isSearchDrinksWord;
+	public bool isSearchIngredientsWord;
+
+	[Header("Collections")]
+	public string collectionName;
+	public string collectionID;
+
+	public bool isForCollectionRecipe;
+
+	public bool isPopUpForPhotoUpload;
 
 
 	// Use this for initialization
@@ -58,6 +86,14 @@ public class AppManager : MonoBehaviour {
 
 		popUpMessage.PopUpPanelTwo (msg, msgType);
 		popUpMessage.gameObject.SetActive (true);
+	}
+
+	public void ShowMessage1 (string msg,  
+		LogoutPopUpMessage.eMessageType msgType = LogoutPopUpMessage.eMessageType.Normal)
+	{		
+
+		logoutPopUpMessage.PopUpPanelTwo (msg, msgType);
+		logoutPopUpMessage.gameObject.SetActive (true);
 	}
 	
 	// Update is called once per frame

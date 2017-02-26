@@ -17,7 +17,6 @@ public class CollectList : MonoBehaviour {
 		brandName.text = collectionBrand.collection_name;
 		StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+collectionBrand.recipes_image);
 	}
-
 	IEnumerator LoadImage (string url)
 	{
 		WWW image = new WWW (url);
@@ -38,7 +37,11 @@ public class CollectList : MonoBehaviour {
 
 	public void onclickBrand()
 	{
-		Debug.Log ("OnClick Brand ------>"+brand.collection_name);
-		collectionController.FlavourAPICalls ();
+		Debug.Log("Collection Name2 :" + brand.collection_name);
+		AppManager.Instance.isForCollectionRecipe = true;
+		AppManager.Instance.BrandId = brand.collection_id;
+		AppManager.Instance.collectionName = brand.collection_name;
+		MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
+		MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
 	}
 }

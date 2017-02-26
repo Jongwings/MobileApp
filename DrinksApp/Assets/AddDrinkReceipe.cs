@@ -14,9 +14,6 @@ public class AddDrinkReceipe : MonoBehaviour {
 	void Start () {
 	
 	}
-	
-
-
 	public void OnClickAddReceipe()
 	{
 		MainMenuSlideManager.Instance.InnerPanel.SetActive (true);

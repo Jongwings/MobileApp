@@ -34,6 +34,7 @@ public class PostRecipe : MonoBehaviour {
 
 	public void OnClickSubmit()
 	{
-		
+		AppManager.Instance.isPopUpForPhotoUpload = true;
+		AppManager.Instance.ShowMessage1("Are you sure to submit new Recipe?",LogoutPopUpMessage.eMessageType.Normal);
 	}
 }

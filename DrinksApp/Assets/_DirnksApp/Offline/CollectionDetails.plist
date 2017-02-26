@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>CollectionName</key>
+		<string>Mixtures</string>
+		<key>CollectionID</key>
+		<string>1</string>
+		<key>CollectionImage</key>
+		<string>Recipes1.png</string>
+		<key>RecipesIDInTheCollection</key>
+		<array>
+			<string>1</string>
+			<string>2</string>
+			<string>3</string>
+			<string>4</string>
+		</array>
+		<key>RecipesNameInTheCollection</key>
+		<array>
+			<string>CHIVITA ORANGE BLOSSOM</string>
+			<string>CHIVITA APPLE ESSENCE</string>
+			<string>CHIVITA PINEAPPLE PUNCH</string>
+			<string>CHIVITA MANGO MADNESS</string>
+		</array>
+	</dict>
+	<dict>
+		<key>CollectionName</key>
+		<string>Cocktails</string>
+		<key>CollectionID</key>
+		<string>2</string>
+		<key>CollectionImage</key>
+		<string>Recipes5.png</string>
+		<key>RecipesIDInTheCollection</key>
+		<array>
+			<string>5</string>
+			<string>6</string>
+			<string>7</string>
+		</array>
+		<key>RecipesNameInTheCollection</key>
+		<array>
+			<string>CHIVITA HURRICANE</string>
+			<string>CHIVITA FRUITY FOREVER</string>
+			<string>CHIVITA\u2019S PINEAPPLE PARTY</string>
+		</array>
+	</dict>
+</array>
+</plist>
