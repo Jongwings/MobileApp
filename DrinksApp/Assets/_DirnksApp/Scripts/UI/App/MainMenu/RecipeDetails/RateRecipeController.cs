@@ -22,7 +22,15 @@ public class RateRecipeController : MonoBehaviour {
 	void OnEnable () {
 
 		this.RecipeName.text = AppManager.Instance.RecipeNameStr;
-		StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+AppManager.Instance.RecipeImageStr);
+
+		if(AppManager.Instance.isInternetAvailable)
+			StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+AppManager.Instance.RecipeImageStr);
+		else
+		{
+			int aIndex = System.Convert.ToInt32(AppManager.Instance.RecipeId);
+			RecipeImage.sprite = AppManager.Instance.RecipeOfflineImages[(aIndex - 1)];
+		}
+			
 
 		if(AppManager.Instance.RecipeRating == "0")
 		{

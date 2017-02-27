@@ -21,8 +21,6 @@ public class SeralizedClassServer
 		public string BrandTitle1 { get; set; }
 		public string BrandThumpImage { get; set; }
 	}
-
-
 	public class OfflineCollectionDetails
 	{
 		public List<string> RecipesNameInTheCollection { get; set; }
@@ -30,6 +28,23 @@ public class SeralizedClassServer
 		public List<string> RecipesIDInTheCollection { get; set; }
 		public string CollectionName { get; set; }
 		public string CollectionImage { get; set; }
+	}
+	public class OfflineFeatureCollectionDetails
+	{
+		public string CollectionImage { get; set; }
+		public List<string> RecipesIDInTheCollection { get; set; }
+		public List<string> RecipesNameInTheCollection { get; set; }
+		public string CollectionID { get; set; }
+		public string CollectionName { get; set; }
+	}
+	public class OfflineRecipeDetails
+	{
+		public string Preparation { get; set; }
+		public string RecipeID { get; set; }
+		public string Ingeridents { get; set; }
+		public string RecipeImage { get; set; }
+		public string RecipeName { get; set; }
+		public string RecipeBrandName { get; set; }
 	}
 	//OFFLINE END
 

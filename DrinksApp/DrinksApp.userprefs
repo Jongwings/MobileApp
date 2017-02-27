@@ -1,19 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_DirnksApp/Scripts/UI/App/MainMenu/RecipesWithThisBrand/RecipesWithThisBrandController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_DirnksApp/Scripts/UI/App/MainMenu/RecipesWithThisBrand/BrandRecipes.cs">
     <Files>
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/RecipesWithThisBrand/RecipesWithThisBrandController.cs" Line="61" Column="64" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/RecipesWithThisBrand/BrandRecipes.cs" Line="61" Column="2" />
-      <File FileName="Assets/_DirnksApp/Scripts/Manager/SeralizedClassServer.cs" Line="150" Column="3" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Collections/CollectList.cs" Line="11" Column="50" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/KnowYourDrink/BrandDetails/BrandDetails.cs" Line="87" Column="54" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/SplashScreen/SplashScreen.cs" Line="1" Column="1" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Game/Brands.cs" Line="15" Column="1" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenuSlide/Home/HomeBrand.cs" Line="39" Column="1" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Search/Ingredients/SearchIngrediantsBrand.cs" Line="58" Column="55" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenuSlide/Home/HomeCollectList.cs" Line="39" Column="44" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/KnowYourDrink/KYDBrand.cs" Line="50" Column="69" />
-      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Manager/AppManager.cs" Line="66" Column="35" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/RecipesWithThisBrand/RecipesWithThisBrandController.cs" Line="229" Column="82" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenuSlide/Home/HomeCollectionController.cs" Line="31" Column="94" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Manager/AppManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Collections/Brand.cs" Line="19" Column="2" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Search/Ingredients/SearchIngrediantsBrandsController.cs" Line="78" Column="93" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/RecipesWithThisBrand/BrandRecipes.cs" Line="74" Column="50" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Search/Ingredients/SearchIngrediantsBrand.cs" Line="23" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

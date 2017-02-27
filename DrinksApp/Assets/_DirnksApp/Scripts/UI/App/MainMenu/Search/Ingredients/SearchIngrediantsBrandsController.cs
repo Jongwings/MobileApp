@@ -16,7 +16,13 @@ public class SearchIngrediantsBrandsController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CollectionsAPICalls ();
+		if(AppManager.Instance.isInternetAvailable)
+			CollectionsAPICalls ();
+		else
+		{
+			AppManager.Instance.ReadFileOfflineRecipeDetails();
+			this.DisplayOfflineRecipeDetails(AppManager.Instance.offlineRecipeDetails);
+		}
 
 	}
 	
@@ -58,6 +64,18 @@ public class SearchIngrediantsBrandsController : MonoBehaviour {
 			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
 			collectionBrandGameObject [count].transform.GetComponent<SearchIngrediantsBrand> ().InitBrand (brand);
+			count++;
+		}
+	}
+	void DisplayOfflineRecipeDetails(List<SeralizedClassServer.OfflineRecipeDetails> collectionBrandList)
+	{
+		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
+		int count = 0;
+		foreach(SeralizedClassServer.OfflineRecipeDetails brand in collectionBrandList)
+		{
+			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
+			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
+			collectionBrandGameObject [count].transform.GetComponent<SearchIngrediantsBrand> ().InitBrand1 (brand,count);
 			count++;
 		}
 	}

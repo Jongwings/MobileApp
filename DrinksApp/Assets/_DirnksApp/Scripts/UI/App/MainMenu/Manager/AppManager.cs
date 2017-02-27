@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
+using Newtonsoft.Json;
 public class AppManager : MonoBehaviour {
 
 	[Header("Chivita Login")]
@@ -36,6 +37,7 @@ public class AppManager : MonoBehaviour {
 	public bool isRecipeDetailsForSearch;
 
 	[Header("Recipe Details")]
+	public string RecipeId;
 	public string RecipeNameStr;
 	public string RecipeIngrdeientsStr;
 	public string RecipePreparationStr;
@@ -66,6 +68,17 @@ public class AppManager : MonoBehaviour {
 	public bool isForCollectionRecipe;
 
 	public bool isPopUpForPhotoUpload;
+
+	public bool isInternetAvailable;
+
+	public Sprite[] BrandOfflineThumbImages;
+	public Sprite[] BrandOfflineBannerImages;
+	public Sprite[] RecipeOfflineImages;
+
+	public List<SeralizedClassServer.OfflineBradDetails> offlineBrandDetails;
+	public List<SeralizedClassServer.OfflineCollectionDetails> offlineCollectionDetails;
+	public List<SeralizedClassServer.OfflineFeatureCollectionDetails> offlineFeatureCollectionDetails;
+	public List<SeralizedClassServer.OfflineRecipeDetails> offlineRecipeDetails;
 
 
 	// Use this for initialization
@@ -99,5 +112,47 @@ public class AppManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+	// Read File from Local Resource
+	public void ReadFileOfflineBrandDetails()
+	{
+		if (offlineBrandDetails == null) {
+			TextAsset myBrandDetailsData = (TextAsset)Resources.Load("BrandDetailsjson", typeof(TextAsset));
+			string txt = myBrandDetailsData.text;
+			offlineBrandDetails = new List<SeralizedClassServer.OfflineBradDetails> ();
+			offlineBrandDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineBradDetails>> (txt);
+		}
+	}
+
+	// Read File from Local Resource
+	public void ReadFileOfflineCollectionDetails()
+	{
+		if (offlineCollectionDetails == null) {
+			TextAsset myCollectionData = (TextAsset)Resources.Load("CollectionDetailsjson", typeof(TextAsset));
+			string txt = myCollectionData.text;
+			offlineCollectionDetails = new List<SeralizedClassServer.OfflineCollectionDetails> ();
+			offlineCollectionDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineCollectionDetails>> (txt);
+		}
+	}
+	// Read File from Local Resource
+	public void ReadFileOfflineFeatureCollectionDetails()
+	{
+		if (offlineFeatureCollectionDetails == null) {
+			TextAsset myCollectionData = (TextAsset)Resources.Load("FeatureCollectionDetailsJson", typeof(TextAsset));
+			string txt = myCollectionData.text;
+			offlineFeatureCollectionDetails = new List<SeralizedClassServer.OfflineFeatureCollectionDetails> ();
+			offlineFeatureCollectionDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineFeatureCollectionDetails>> (txt);
+		}
+	}
+
+	// Read File from Local Resource
+	public void ReadFileOfflineRecipeDetails()
+	{
+		if (offlineRecipeDetails == null) {
+			TextAsset myCollectionData = (TextAsset)Resources.Load("RecipesDetailsjson", typeof(TextAsset));
+			string txt = myCollectionData.text;
+			offlineRecipeDetails = new List<SeralizedClassServer.OfflineRecipeDetails> ();
+			offlineRecipeDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineRecipeDetails>> (txt);
+		}
 	}
 }

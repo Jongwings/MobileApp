@@ -64,7 +64,6 @@ public class SplashScreen : MonoBehaviour {
 
 	void OnEnable ()
     {
-		Debug.Log("Splash OnAwake Called");
 		this.LoginPassword.text = "";
 		this.LoginEmailId.text = "";
     }
@@ -84,64 +83,83 @@ public class SplashScreen : MonoBehaviour {
 		emailSignInField.onEndEdit.AddListener (OnEndEditEmail);
 		passwordSignInField.onEndEdit.AddListener (OnEndEditPassword);
 
-		if(!PlayerPrefs.HasKey("IsInitiatedFirsTime"))
-		{
-			PlayerPrefs.SetInt("IsInitiatedFirsTime",1);
-			PlayerPrefs.SetInt("isUserAlreadyLogin",0);
-			PlayerPrefs.SetInt("isUserLoginWithFBAPI",0);
-			PlayerPrefs.SetInt("isUserLoginWithTwitterAPI",0);
-			PlayerPrefs.SetString("UserName","");
-			PlayerPrefs.SetString("UserPassword","");
-			PlayerPrefs.SetString("UserId","");
-		}
-		else
-		{
-			if(PlayerPrefs.GetInt("isUserAlreadyLogin") == 1)
+		StartCoroutine(checkInternetConnection((isConnected)=>{
+			// handle connection status here
+			if(isConnected)
 			{
-				m_signText = PlayerPrefs.GetString("UserName");
-				m_passwordText = PlayerPrefs.GetString("UserPassword");
-				print("Normal Username :" + m_signText);
-				print("Normal Password :" + m_passwordText);
-				this.UserLoginAPICalls (m_signText,m_passwordText);
+				if(AppManager.Instance.isInternetAvailable)
+				{
 
-			}
-			else if(PlayerPrefs.GetInt("isUserLoginWithFBAPI") == 1)
-			{
-				//FB Auto Login
-				AppManager.Instance.fbUserName = PlayerPrefs.GetString("FBUserName");
-				AppManager.Instance.fbUserID = PlayerPrefs.GetString("FBUserID");
-				AppManager.Instance.fbUserEmailID = PlayerPrefs.GetString("FBUserEmailID");
-				AppManager.Instance.fbUserFirstName = PlayerPrefs.GetString("FBUserFirstName");
-		
-				print("FB fbUserName :" + AppManager.Instance.fbUserName);
-				print("FB fbUserID :" + AppManager.Instance.fbUserID);
-				print("FB fbUserEmailID :" + AppManager.Instance.fbUserEmailID);
-				print("FB fbUserFirstName :" + AppManager.Instance.fbUserFirstName);
+					if(!PlayerPrefs.HasKey("IsInitiatedFirsTime"))
+					{
+						PlayerPrefs.SetInt("IsInitiatedFirsTime",1);
+						PlayerPrefs.SetInt("isUserAlreadyLogin",0);
+						PlayerPrefs.SetInt("isUserLoginWithFBAPI",0);
+						PlayerPrefs.SetInt("isUserLoginWithTwitterAPI",0);
+						PlayerPrefs.SetString("UserName","");
+						PlayerPrefs.SetString("UserPassword","");
+						PlayerPrefs.SetString("UserId","");
+					}
+					else
+					{
+						if(PlayerPrefs.GetInt("isUserAlreadyLogin") == 1)
+						{
+							m_signText = PlayerPrefs.GetString("UserName");
+							m_passwordText = PlayerPrefs.GetString("UserPassword");
+							print("Normal Username :" + m_signText);
+							print("Normal Password :" + m_passwordText);
+							this.UserLoginAPICalls (m_signText,m_passwordText);
 
-				this.UserLoginWithFBAPICalls (AppManager.Instance.fbUserName, AppManager.Instance.fbUserID, AppManager.Instance.fbUserEmailID, AppManager.Instance.fbUserFirstName);
+						}
+						else if(PlayerPrefs.GetInt("isUserLoginWithFBAPI") == 1)
+						{
+							//FB Auto Login
+							AppManager.Instance.fbUserName = PlayerPrefs.GetString("FBUserName");
+							AppManager.Instance.fbUserID = PlayerPrefs.GetString("FBUserID");
+							AppManager.Instance.fbUserEmailID = PlayerPrefs.GetString("FBUserEmailID");
+							AppManager.Instance.fbUserFirstName = PlayerPrefs.GetString("FBUserFirstName");
 
-			}
-			else if(PlayerPrefs.GetInt("isUserLoginWithTwitterAPI") == 1)
-			{
-				//Twitter Auto Login
-				AppManager.Instance.twitterUserName = PlayerPrefs.GetString("TwitterUserName");
-				AppManager.Instance.twitterUserID = PlayerPrefs.GetString("TwitterUserID");
-				AppManager.Instance.twitterUserEmailID = PlayerPrefs.GetString("TwitterUserEmailID");
-				AppManager.Instance.twitterUserFirstName = PlayerPrefs.GetString("TwitterUserFirstName");
+							print("FB fbUserName :" + AppManager.Instance.fbUserName);
+							print("FB fbUserID :" + AppManager.Instance.fbUserID);
+							print("FB fbUserEmailID :" + AppManager.Instance.fbUserEmailID);
+							print("FB fbUserFirstName :" + AppManager.Instance.fbUserFirstName);
 
-				print("Twitter twitterUserName :" + AppManager.Instance.twitterUserName);
-				print("Twitter twitterUserID :" + AppManager.Instance.twitterUserID);
-				print("Twitter twitterUserEmailID :" + AppManager.Instance.twitterUserEmailID);
-				print("Twitter twitterUserFirstName :" + AppManager.Instance.twitterUserFirstName);
+							this.UserLoginWithFBAPICalls (AppManager.Instance.fbUserName, AppManager.Instance.fbUserID, AppManager.Instance.fbUserEmailID, AppManager.Instance.fbUserFirstName);
 
-				UserLoginWithTWitterAPICalls (AppManager.Instance.twitterUserName, AppManager.Instance.twitterUserID, AppManager.Instance.twitterUserEmailID, AppManager.Instance.twitterUserFirstName);
+						}
+						else if(PlayerPrefs.GetInt("isUserLoginWithTwitterAPI") == 1)
+						{
+							//Twitter Auto Login
+							AppManager.Instance.twitterUserName = PlayerPrefs.GetString("TwitterUserName");
+							AppManager.Instance.twitterUserID = PlayerPrefs.GetString("TwitterUserID");
+							AppManager.Instance.twitterUserEmailID = PlayerPrefs.GetString("TwitterUserEmailID");
+							AppManager.Instance.twitterUserFirstName = PlayerPrefs.GetString("TwitterUserFirstName");
 
+							print("Twitter twitterUserName :" + AppManager.Instance.twitterUserName);
+							print("Twitter twitterUserID :" + AppManager.Instance.twitterUserID);
+							print("Twitter twitterUserEmailID :" + AppManager.Instance.twitterUserEmailID);
+							print("Twitter twitterUserFirstName :" + AppManager.Instance.twitterUserFirstName);
+
+							UserLoginWithTWitterAPICalls (AppManager.Instance.twitterUserName, AppManager.Instance.twitterUserID, AppManager.Instance.twitterUserEmailID, AppManager.Instance.twitterUserFirstName);
+
+						}
+						else
+						{
+							Debug.Log("User not Login Yet");
+						}
+					}
+				}
 			}
 			else
 			{
-				Debug.Log("User not Login Yet");
+				AppManager.Instance.EmailSighPanel.SetActive (false);
+				AppManager.Instance.IntroPanel.SetActive (true);
+				Invoke("CallMainMenuPanel", 3);//this will happen after 3 seconds
 			}
-		}
+		}));
+
+
+
 	}
 
 	void OnClickTryModeButton ()
@@ -569,5 +587,17 @@ public class SplashScreen : MonoBehaviour {
 			AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
 		}
 	}
+
+	IEnumerator checkInternetConnection(System.Action<bool> action){
+		WWW www = new WWW("http://google.com");
+		yield return www;
+		if (www.error != null) {
+			AppManager.Instance.isInternetAvailable = false;
+			action (false);
+		} else {
+			AppManager.Instance.isInternetAvailable = true;
+			action (true);
+		}
+	} 
 
 }

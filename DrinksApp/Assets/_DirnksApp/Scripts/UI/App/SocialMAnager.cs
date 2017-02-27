@@ -9,8 +9,6 @@ using Newtonsoft.Json;
 public class SocialMAnager : MonoBehaviour {
 
 	public static SocialMAnager Instance;
-	public List<SeralizedClassServer.OfflineBradDetails> offlineBrandDetails;
-	public List<SeralizedClassServer.OfflineCollectionDetails> offlineCollectionDetails;
 
 	// Use this for initialization
 	void Start () {
@@ -174,25 +172,5 @@ public class SocialMAnager : MonoBehaviour {
 	}
 
 
-	// Read File from Local Resource
-	public void ReadFileOfflineBrandDetails()
-	{
-		if (offlineBrandDetails == null) {
-			TextAsset myBrandDetailsData = (TextAsset)Resources.Load ("_DirnksApp/Offline/BrandDetailsjson");
-			string txt = myBrandDetailsData.text;
-			offlineBrandDetails = new List<SeralizedClassServer.OfflineBradDetails> ();
-			offlineBrandDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineBradDetails>> (txt);
-		}
-	}
 
-	// Read File from Local Resource
-	public void ReadFileOfflineCollectionDetails()
-	{
-		if (offlineCollectionDetails == null) {
-			TextAsset myCollectionData = (TextAsset)Resources.Load ("_DirnksApp/Offline/CollectionDetailsjson");
-			string txt = myCollectionData.text;
-			offlineCollectionDetails = new List<SeralizedClassServer.OfflineCollectionDetails> ();
-			offlineCollectionDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineCollectionDetails>> (txt);
-		}
-	}
 }

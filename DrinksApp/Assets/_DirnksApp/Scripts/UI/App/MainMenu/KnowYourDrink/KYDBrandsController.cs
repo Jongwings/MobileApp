@@ -19,7 +19,13 @@ public class KYDBrandsController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CollectionsAPICalls ();
+		if(AppManager.Instance.isInternetAvailable)
+			CollectionsAPICalls ();
+		else
+		{
+			AppManager.Instance.ReadFileOfflineBrandDetails();
+			this.DisplayCollectionBrands1(AppManager.Instance.offlineBrandDetails);
+		}
 
 	}
 	
@@ -63,6 +69,19 @@ public class KYDBrandsController : MonoBehaviour {
 			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
 			collectionBrandGameObject [count].transform.GetComponent<KYDBrand> ().InitBrand (brand);
+			count++;
+		}
+	}
+
+	void DisplayCollectionBrands1(List<SeralizedClassServer.OfflineBradDetails> collectionBrandList)
+	{
+		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
+		int count = 0;
+		foreach(SeralizedClassServer.OfflineBradDetails brand in collectionBrandList)
+		{
+			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
+			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
+			collectionBrandGameObject [count].transform.GetComponent<KYDBrand> ().InitBrand1 (brand,count);
 			count++;
 		}
 	}
