@@ -5,6 +5,35 @@ using System.Collections.Generic;
 
 public class SeralizedClassServer
 {
+	// OFFLINE START
+
+
+	public class OfflineBradDetails
+	{
+		public string BrandName { get; set; }
+		public string BrandDescription2 { get; set; }
+		public string BrandTitle3 { get; set; }
+		public string BrandID { get; set; }
+		public string BrandBannerImage { get; set; }
+		public string BrandTitle2 { get; set; }
+		public string BrandDescription1 { get; set; }
+		public string BrandDescription3 { get; set; }
+		public string BrandTitle1 { get; set; }
+		public string BrandThumpImage { get; set; }
+	}
+
+
+	public class OfflineCollectionDetails
+	{
+		public List<string> RecipesNameInTheCollection { get; set; }
+		public string CollectionID { get; set; }
+		public List<string> RecipesIDInTheCollection { get; set; }
+		public string CollectionName { get; set; }
+		public string CollectionImage { get; set; }
+	}
+	//OFFLINE END
+
+
 	public class Login
 	{
 		public string returnvalue { get; set; }
