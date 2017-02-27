@@ -10,7 +10,7 @@ public class SocialMAnager : MonoBehaviour {
 
 	public static SocialMAnager Instance;
 	public List<SeralizedClassServer.OfflineBradDetails> offlineBrandDetails;
-	public List<SeralizedClassServer.OfflineBradDetails> offlineCollectionDetails;
+	public List<SeralizedClassServer.OfflineCollectionDetails> offlineCollectionDetails;
 
 	// Use this for initialization
 	void Start () {
@@ -181,7 +181,7 @@ public class SocialMAnager : MonoBehaviour {
 			TextAsset myBrandDetailsData = (TextAsset)Resources.Load ("_DirnksApp/Offline/BrandDetailsjson");
 			string txt = myBrandDetailsData.text;
 			offlineBrandDetails = new List<SeralizedClassServer.OfflineBradDetails> ();
-			offlineBrandDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.SearchDrinkListOfRecipes>> (txt);
+			offlineBrandDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineBradDetails>> (txt);
 		}
 	}
 
