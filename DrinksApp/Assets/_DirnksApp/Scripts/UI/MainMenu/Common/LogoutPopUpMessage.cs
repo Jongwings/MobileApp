@@ -115,7 +115,7 @@ public class LogoutPopUpMessage : MonoBehaviour {
 			}
 
 			ClosePopUp ();
-			MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(false);
+			MainMenuSlideManager.Instance.PostRecipePanel.SetActive(false);
 			MainMenuSlideManager.Instance.InnerPanel.SetActive (false);
 		}
 

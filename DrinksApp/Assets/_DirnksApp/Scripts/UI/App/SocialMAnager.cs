@@ -119,6 +119,7 @@ public class SocialMAnager : MonoBehaviour {
 
 	public void AndroidGlopalShare(Texture2D MyImage)
 	{
+		/*
 		#if UNITY_ANDROID && !UNITY_EDITOR
 		// Save your image on designate path
 		byte[] bytes = MyImage.EncodeToPNG();
@@ -147,6 +148,7 @@ public class SocialMAnager : MonoBehaviour {
 		- See more at: http://www.theappguruz.com/blog/general-sharing-in-android-ios-in-unity#sthash.As5IOlYE.dpuf
 		#endif
 	//- See more at: http://www.theappguruz.com/blog/general-sharing-in-android-ios-in-unity#sthash.As5IOlYE.dpuf
+		*/
 	}
 
 	public void FaceBookShare()

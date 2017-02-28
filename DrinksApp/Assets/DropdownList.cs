@@ -61,8 +61,6 @@ public class DropdownList : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	{
 		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_BRAND;
 
-
-		WWWForm wwwForm = new WWWForm ();
 		WWW www = new WWW (url);
 		StartCoroutine (ItemsServerCallback (www));
 	}
