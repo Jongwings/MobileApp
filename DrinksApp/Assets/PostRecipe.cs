@@ -16,7 +16,11 @@ public class PostRecipe : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
+	void OnEnable()
+	{
+		
+	}
 	// Update is called once per frame
 	void Update () {
 	

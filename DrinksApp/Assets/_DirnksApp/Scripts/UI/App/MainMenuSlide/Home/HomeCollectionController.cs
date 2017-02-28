@@ -74,8 +74,14 @@ public class HomeCollectionController : MonoBehaviour {
 			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
 			collectionBrandGameObject [count].transform.GetComponent<HomeBrand> ().InitBrand (brand);
+			AppManager.Instance.BrandArray.Add(brand.brnad_name);
 			count++;
 		}
+//		print("Brand List :" + AppManager.Instance.BrandArray);
+		foreach(string i in AppManager.Instance.BrandArray) 
+			print("Brand Name :" + i);
+
+
 	}
 	void DisplayOfflineBrandDetails(List<SeralizedClassServer.OfflineBradDetails> collectionBrandList)
 	{

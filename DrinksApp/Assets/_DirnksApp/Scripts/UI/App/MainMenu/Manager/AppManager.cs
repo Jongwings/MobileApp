@@ -80,6 +80,10 @@ public class AppManager : MonoBehaviour {
 	public List<SeralizedClassServer.OfflineFeatureCollectionDetails> offlineFeatureCollectionDetails;
 	public List<SeralizedClassServer.OfflineRecipeDetails> offlineRecipeDetails;
 
+//	public string[] BrandArray;
+	public List<string> BrandArray = new List<string>();
+
+
 
 	// Use this for initialization
 	void Start () {
