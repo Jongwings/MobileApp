@@ -8,12 +8,22 @@ public class Brand : MonoBehaviour {
 	public Text brandName;
 	[HideInInspector]
 	public SeralizedClassServer.CollectionBrand brand;
+	public SeralizedClassServer.OfflineFeatureCollectionDetails brand1;
 
 	public void InitBrand(SeralizedClassServer.CollectionBrand collectionBrand)
 	{
 		brand = collectionBrand;
 		brandName.text = collectionBrand.collection_name;
 		StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+collectionBrand.recipes_image);
+	}
+	public void InitBrand1(SeralizedClassServer.OfflineFeatureCollectionDetails collectionBrand)
+	{
+		brand1 = collectionBrand;
+		brandName.text = collectionBrand.CollectionName;
+		if(collectionBrand.CollectionName == "Cocktails")
+			brandIcon.sprite = AppManager.Instance.RecipeOfflineImages[4];
+		else if(collectionBrand.CollectionName == "Mixtures")
+			brandIcon.sprite = AppManager.Instance.RecipeOfflineImages[0];
 	}
 
 	IEnumerator LoadImage (string url)
@@ -36,19 +46,40 @@ public class Brand : MonoBehaviour {
 
 	public void onclickBrand()
 	{
-		Debug.Log("Collection Name :" + brand.collection_name);
-		AppManager.Instance.isForCollectionRecipe = true;
-		AppManager.Instance.BrandId = brand.collection_id;
-		AppManager.Instance.collectionName = brand.collection_name;
-		MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
-		if(MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.activeSelf)
+		if(AppManager.Instance.isInternetAvailable)
 		{
-			MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(false);
-			MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+			Debug.Log("Collection Name :" + brand.collection_name);
+			AppManager.Instance.isForCollectionRecipe = true;
+			AppManager.Instance.BrandId = brand.collection_id;
+			AppManager.Instance.collectionName = brand.collection_name;
+			MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
+			if(MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.activeSelf)
+			{
+				MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(false);
+				MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+			}
+			else
+			{
+				MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+			}
 		}
 		else
 		{
-			MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+			AppManager.Instance.isForCollectionRecipe = true;
+			AppManager.Instance.BrandId = brand1.CollectionID;
+			AppManager.Instance.collectionName = brand1.CollectionName;
+			MainMenuSlideManager.Instance.DetailsPanel.SetActive (true);
+			if(MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.activeSelf)
+			{
+				MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(false);
+				MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+			}
+			else
+			{
+				MainMenuSlideManager.Instance.RecipesWithThisDrinkPanel.SetActive(true);
+			}
 		}
+
+
 	}
 }

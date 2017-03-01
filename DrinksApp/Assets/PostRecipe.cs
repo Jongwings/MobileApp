@@ -16,7 +16,11 @@ public class PostRecipe : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
+	void OnEnable()
+	{
+		
+	}
 	// Update is called once per frame
 	void Update () {
 	
@@ -25,7 +29,7 @@ public class PostRecipe : MonoBehaviour {
 
 	public void OnClickShareFaceBook()
 	{
-		
+		SocialManager.Instance.FaceBookShare();
 	}
 
 	public void OnClickShareTwitter()

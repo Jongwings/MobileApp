@@ -4,7 +4,6 @@ using System.Collections;
 using Q.Utils;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.Collections;
 
 public class BrandDetails : MonoBehaviour {
 
@@ -27,7 +26,24 @@ public class BrandDetails : MonoBehaviour {
 		this.BrandHeaderDetails2.text = AppManager.Instance.BrandHeaderStrText2;
 		this.BrandHeader3.text = AppManager.Instance.BrandHeaderTitle3;
 		this.BrandHeaderDetails3.text = AppManager.Instance.BrandHeaderStrText3;
-		StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+AppManager.Instance.BrandImageStr);
+
+		if(AppManager.Instance.isInternetAvailable)
+			StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+AppManager.Instance.BrandImageStr);
+		else
+		{
+			if(AppManager.Instance.BrandNameStr == "CHIVITA 100%")
+				BrandBannerImage.sprite = AppManager.Instance.BrandOfflineBannerImages[0];
+			else if(AppManager.Instance.BrandNameStr == "CHIVITA ACTIVE")
+				BrandBannerImage.sprite = AppManager.Instance.BrandOfflineBannerImages[1];
+			else if(AppManager.Instance.BrandNameStr == "CHI EXOTIC")
+				BrandBannerImage.sprite = AppManager.Instance.BrandOfflineBannerImages[2];
+			else if(AppManager.Instance.BrandNameStr == "HAPPY HOUR")
+				BrandBannerImage.sprite = AppManager.Instance.BrandOfflineBannerImages[3];
+			else if(AppManager.Instance.BrandNameStr == "CHI ICE TEA")
+				BrandBannerImage.sprite = AppManager.Instance.BrandOfflineBannerImages[4];
+		}
+		
+			
 
 	}
 
@@ -59,7 +75,8 @@ public class BrandDetails : MonoBehaviour {
 	}
 	public void OnClickRecipesWithThisDrinkButton()
 	{
-		CollectionReceipeAPICalls();
+		if(AppManager.Instance.isInternetAvailable)
+			CollectionReceipeAPICalls();
 	}
 
 	public void CollectionReceipeAPICalls()

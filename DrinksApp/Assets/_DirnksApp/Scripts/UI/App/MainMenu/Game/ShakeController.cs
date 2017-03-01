@@ -7,7 +7,18 @@ public class ShakeController : MonoBehaviour {
 	public GameObject ShakeAnimation;
 	public GameObject ShakeAniText;
 	public Sprite[] animationSpr;
-	private int frameCounter = 0;     
+	private int frameCounter = 0;
+	public Button nextButtton;
+
+	// This next parameter is initialized to 2.0 per Apple's recommendation, or at least according to Brady! ;
+	double shakeDetectionThreshold = 2.0f; 
+
+	float lowPassFilterFactor = 0.01666666666667f; 
+	private Vector3 lowPassValue = Vector3.zero;
+	private Vector3 acceleration;
+	private Vector3 deltaAcceleration;
+
+	bool isShakeDetected = false;
 
 	public void OnclickBack()
 	{
@@ -24,15 +35,52 @@ public class ShakeController : MonoBehaviour {
 
 	}
 
+	void OnEnable()
+	{
+	}
+
+	// Use this for initialization
+	void Start () {
+		if(!Application.isEditor)
+			nextButtton.interactable = false;
+		
+		shakeDetectionThreshold *= shakeDetectionThreshold;
+		lowPassValue = Input.acceleration;
+	}
+
 	void Update ()  
 	{  
-		//Call the 'PlayLoop' method as a coroutine with a 0.04 delay  
-		StartCoroutine("PlayLoop",0.04f);  
-		//Set the material's texture to the current value of the frameCounter variable  
-//		goMaterial.mainTexture = textures[frameCounter];
-		ShakeAnimation.GetComponent<Image>().sprite = animationSpr[frameCounter];
+		acceleration = Input.acceleration;
+		lowPassValue = Vector3.Lerp(lowPassValue, acceleration, lowPassFilterFactor);
+		deltaAcceleration = acceleration - lowPassValue;
+		if (deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold)
+		{
+			print("Shake event detected at time : "+Time.time);
+			//Call the 'PlayLoop' method as a coroutine with a 0.04 delay  
+			ShakeAniText.gameObject.SetActive(false);
+			isShakeDetected = true;
+			Invoke("ResetShakeDetect", 2);//this will happen after 3 seconds
+			nextButtton.interactable = true;
+
+			//Set the material's texture to the current value of the frameCounter variable  
+			//		goMaterial.mainTexture = textures[frameCounter];
+		}
+		if(isShakeDetected == true)
+		{
+			StartCoroutine("PlayLoop",0.04f);
+			ShakeAnimation.GetComponent<Image>().sprite = animationSpr[frameCounter];
+		}
 
 	}  
+
+	void ResetShakeDetect()
+	{
+		isShakeDetected = false;
+		frameCounter = 0;
+		StopCoroutine("PlayLoop");  
+		ShakeAnimation.GetComponent<Image>().sprite = animationSpr[0];
+
+	}
 
 	//The following methods return a IEnumerator so they can be yielded:  
 	//A method to play the animation in a loop  

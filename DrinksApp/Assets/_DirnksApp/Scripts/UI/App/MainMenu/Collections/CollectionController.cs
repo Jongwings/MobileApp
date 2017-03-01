@@ -43,9 +43,20 @@ public class CollectionController : MonoBehaviour {
 
 	void OnEnable()
 	{
-		flavourPanel.SetActive (false);
-		CollectionsAPICalls ();
-		CollectionReceipeAPICalls ();
+		if(AppManager.Instance.isInternetAvailable)
+		{
+			flavourPanel.SetActive (false);
+			CollectionsAPICalls ();
+			CollectionReceipeAPICalls ();
+		}
+		else
+		{
+			AppManager.Instance.ReadFileOfflineFeatureCollectionDetails();
+			this.DisplayOfflineFeatureCollection(AppManager.Instance.offlineFeatureCollectionDetails);
+			AppManager.Instance.ReadFileOfflineCollectionDetails();
+			this.DisplayOfflineCollection(AppManager.Instance.offlineCollectionDetails);
+
+		}
 	}
 	
 	// Update is called once per frame
@@ -89,6 +100,19 @@ public class CollectionController : MonoBehaviour {
 			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
 			collectionBrandGameObject [count].transform.GetComponent<Brand> ().InitBrand (brand);
+			count++;
+		}
+	}
+	void DisplayOfflineFeatureCollection(List<SeralizedClassServer.OfflineFeatureCollectionDetails> collectionBrandList)
+	{
+		clearGrid(collectionBrandScrollTransform);
+		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
+		int count = 0;
+		foreach(SeralizedClassServer.OfflineFeatureCollectionDetails brand in collectionBrandList)
+		{
+			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
+			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
+			collectionBrandGameObject [count].transform.GetComponent<Brand> ().InitBrand1 (brand);
 			count++;
 		}
 	}
@@ -176,6 +200,21 @@ public class CollectionController : MonoBehaviour {
 			collectionBrandGameObject[count] = Instantiate(collectionReceipePrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionReceipeScrollTrandform.transform, false);
 			collectionBrandGameObject [count].transform.GetComponent<CollectList> ().InitBrand (brand, this);
+			count++;
+		}
+	}
+
+	void DisplayOfflineCollection(List<SeralizedClassServer.OfflineCollectionDetails> collectionBrandList)
+	{
+		clearGrid(collectionReceipeScrollTrandform);
+
+		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
+		int count = 0;
+		foreach(SeralizedClassServer.OfflineCollectionDetails brand in collectionBrandList)
+		{
+			collectionBrandGameObject[count] = Instantiate(collectionReceipePrefab,  Vector3.zero, Quaternion.identity) as GameObject;
+			collectionBrandGameObject [count].transform.SetParent (collectionReceipeScrollTrandform.transform, false);
+			collectionBrandGameObject [count].transform.GetComponent<CollectList> ().InitBrand1 (brand, this);
 			count++;
 		}
 	}

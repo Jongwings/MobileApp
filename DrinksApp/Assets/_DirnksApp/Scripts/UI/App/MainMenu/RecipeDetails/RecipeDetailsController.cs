@@ -15,7 +15,14 @@ public class RecipeDetailsController : MonoBehaviour {
 		this.RecipeName.text = AppManager.Instance.RecipeNameStr;
 		this.RecipeIngrdients.text = AppManager.Instance.RecipeIngrdeientsStr;
 		this.RecipePreparation.text = AppManager.Instance.RecipePreparationStr;
-		StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+AppManager.Instance.RecipeImageStr);
+
+		if(AppManager.Instance.isInternetAvailable)
+			StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+AppManager.Instance.RecipeImageStr);
+		else
+		{
+			int aIndex = System.Convert.ToInt32(AppManager.Instance.RecipeId);
+			RecipeImage.sprite = AppManager.Instance.RecipeOfflineImages[(aIndex - 1)];
+		}
 
 	}
 
@@ -78,5 +85,10 @@ public class RecipeDetailsController : MonoBehaviour {
 		MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(false);
 		MainMenuSlideManager.Instance.RecipeRatingPanel.SetActive(true);
 
+	}
+
+	public void OnClickShareButton()
+	{
+		SocialManager.Instance.FaceBookShare();
 	}
 }

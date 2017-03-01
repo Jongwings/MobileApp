@@ -6,11 +6,9 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 
 
-public class SocialMAnager : MonoBehaviour {
+public class SocialManager : MonoBehaviour {
 
-	public static SocialMAnager Instance;
-	public List<SeralizedClassServer.OfflineBradDetails> offlineBrandDetails;
-	public List<SeralizedClassServer.OfflineCollectionDetails> offlineCollectionDetails;
+	public static SocialManager Instance;
 
 	// Use this for initialization
 	void Start () {
@@ -121,6 +119,7 @@ public class SocialMAnager : MonoBehaviour {
 
 	public void AndroidGlopalShare(Texture2D MyImage)
 	{
+		/*
 		#if UNITY_ANDROID && !UNITY_EDITOR
 		// Save your image on designate path
 		byte[] bytes = MyImage.EncodeToPNG();
@@ -149,16 +148,21 @@ public class SocialMAnager : MonoBehaviour {
 		- See more at: http://www.theappguruz.com/blog/general-sharing-in-android-ios-in-unity#sthash.As5IOlYE.dpuf
 		#endif
 	//- See more at: http://www.theappguruz.com/blog/general-sharing-in-android-ios-in-unity#sthash.As5IOlYE.dpuf
+		*/
 	}
 
 	public void FaceBookShare()
 	{
-		var snap = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-		snap.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-		snap.Apply();
-		var screenshot = snap.EncodeToPNG();
 
-		int i = UnityEngine.Random.Range (0, 2);
+		var width = Screen.width;
+		var height = Screen.height;
+		var texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+		texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+		texture.Apply();
+		var screenshot = texture.EncodeToPNG();
+		GameObject.Destroy(texture);
+
+//		int i = UnityEngine.Random.Range (0, 2);
 
 		var wwwForm = new WWWForm();
 		wwwForm.AddBinaryData("image", screenshot, "picture.png");
@@ -170,29 +174,13 @@ public class SocialMAnager : MonoBehaviour {
 	public void CallbackUploadImage(IResult result)
 	{
 		if (result.Error == null) {
+			AppManager.Instance.ShowMessage("Recipe Shared Successfully",PopUpMessage.eMessageType.Normal);
 		}
+		else
+			AppManager.Instance.ShowMessage("please check the network connection",PopUpMessage.eMessageType.Error);
+		
 	}
 
 
-	// Read File from Local Resource
-	public void ReadFileOfflineBrandDetails()
-	{
-		if (offlineBrandDetails == null) {
-			TextAsset myBrandDetailsData = (TextAsset)Resources.Load ("_DirnksApp/Offline/BrandDetailsjson");
-			string txt = myBrandDetailsData.text;
-			offlineBrandDetails = new List<SeralizedClassServer.OfflineBradDetails> ();
-			offlineBrandDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineBradDetails>> (txt);
-		}
-	}
 
-	// Read File from Local Resource
-	public void ReadFileOfflineCollectionDetails()
-	{
-		if (offlineCollectionDetails == null) {
-			TextAsset myCollectionData = (TextAsset)Resources.Load ("_DirnksApp/Offline/CollectionDetailsjson");
-			string txt = myCollectionData.text;
-			offlineCollectionDetails = new List<SeralizedClassServer.OfflineCollectionDetails> ();
-			offlineCollectionDetails = JsonConvert.DeserializeObject<List<SeralizedClassServer.OfflineCollectionDetails>> (txt);
-		}
-	}
 }

@@ -38,7 +38,7 @@ public class DropdownList : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	void OnEnable()
 	{
-		
+		this.ItemsAPICalls();
 	}
 	
 	// Update is called once per frame
@@ -59,13 +59,8 @@ public class DropdownList : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	public void ItemsAPICalls()
 	{
-		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_COLLECTION;
+		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_BRAND;
 
-
-		WWWForm wwwForm = new WWWForm ();
-
-		//		wwwForm.AddField ("user_name", "daniel");
-		//		wwwForm.AddField ("password", "test123");
 		WWW www = new WWW (url);
 		StartCoroutine (ItemsServerCallback (www));
 	}
@@ -76,19 +71,19 @@ public class DropdownList : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		if (www.error == null) {
 			Debug.Log (www.text);
 			string temp = www.text;
-			List<SeralizedClassServer.CollectionList> categoryList = new List<SeralizedClassServer.CollectionList> ();
-			categoryList = JsonConvert.DeserializeObject<List<SeralizedClassServer.CollectionList>> (temp);
+			List<SeralizedClassServer.KYDBrand> categoryList = new List<SeralizedClassServer.KYDBrand> ();
+			categoryList = JsonConvert.DeserializeObject<List<SeralizedClassServer.KYDBrand>> (temp);
 
 			//Debug.Log (JsonConvert.SerializeObject (newCategory));
 			DisplayItems (categoryList);
 		}
 	}
 
-	void DisplayItems(List<SeralizedClassServer.CollectionList> collectionBrandList)
+	void DisplayItems(List<SeralizedClassServer.KYDBrand> collectionBrandList)
 	{
 		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
 		int count = 0;
-		foreach(SeralizedClassServer.CollectionList brand in collectionBrandList)
+		foreach(SeralizedClassServer.KYDBrand brand in collectionBrandList)
 		{
 			collectionBrandGameObject[count] = Instantiate(itemPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (containerRectTransform.transform, false);

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_4;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_1;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -536,6 +536,7 @@
      <Compile Include="Assets\_DirnksApp\Scripts\Common\LoadingImage.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Config\CurrentBundleVersion.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Jeba\DynamicGrid.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\Jeba\checkinternetconnection.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Manager\SeralizedClassServer.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Manager\TagConstant.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Network\InternetConnection.cs" />
@@ -591,7 +592,7 @@
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\LogOut\LogOutHanduler.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Manager\MainMenuSlideManager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Profile\ProfileHanduler.cs" />
-     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\SocialMAnager.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\SocialManager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\AppUpdatesPanel.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\LogoutPopUpMessage.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\PopUpMessage.cs" />
@@ -634,6 +635,7 @@
      <None Include="Assets\Plugins\Android\twitter-core\res\values-iw\values-iw.xml" />
      <None Include="Assets\ExternalPlugins\EasyMovieTexture\Unlit_SphereInside.shader" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-uk\values-uk.xml" />
+     <None Include="Assets\_DirnksApp\Resources\FeatureCollectionDetailsJson.txt" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-ur\values-ur.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-ca\values-ca.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\layout\tw__activity_oauth.xml" />
@@ -648,9 +650,9 @@
      <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__composer_view.xml" />
      <None Include="Assets\ExternalPlugins\EasyMovieTexture\Chromakey.shader" />
      <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__app_card.xml" />
-     <None Include="Assets\_DirnksApp\Offline\FeatureCollectionDetailsJson.txt" />
      <None Include="Assets\ExternalPlugins\LeanTween\ReadMe.txt" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-sk\values-sk.xml" />
+     <None Include="Assets\_DirnksApp\Resources\CollectionDetailsjson.txt" />
      <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__btn_composer_tweet.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-ar\values-ar.xml" />
      <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__activity_composer.xml" />
@@ -666,7 +668,6 @@
      <None Include="Assets\Plugins\Android\twitter-core\res\values-ko\values-ko.xml" />
      <None Include="Assets\Plugins\Android\tweet-composer\res\values\values.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn.xml" />
-     <None Include="Assets\_DirnksApp\Offline\CollectionDetailsjson.txt" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-cs\values-cs.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-zh-rCN\values-zh-rCN.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_light.xml" />
@@ -677,7 +678,6 @@
      <None Include="Assets\Plugins\Android\twitter-core\res\values-mr\values-mr.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-gu\values-gu.xml" />
      <None Include="Assets\Plugins\Android\tweet-composer\res\values-v21\values-v21.xml" />
-     <None Include="Assets\_DirnksApp\Offline\BrandDetailsjson.txt" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-de\values-de.xml" />
      <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__app_info_layout_border.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-hr\values-hr.xml" />
@@ -702,10 +702,11 @@
      <None Include="Assets\Plugins\Android\fabric\res\values\strings.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-hdpi-v4\values-hdpi-v4.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-xhdpi-v4\values-xhdpi-v4.xml" />
+     <None Include="Assets\_DirnksApp\Resources\BrandDetailsjson.txt" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-nl\values-nl.xml" />
      <None Include="Assets\Plugins\Android\tweet-composer\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-it\values-it.xml" />
-     <None Include="Assets\_DirnksApp\Offline\RecipesDetailsjson.txt" />
+     <None Include="Assets\_DirnksApp\Resources\RecipesDetailsjson.txt" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-tl\values-tl.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-nb\values-nb.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\values-en-rXX\values-en-rXX.xml" />
@@ -721,13 +722,13 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Analytics">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Validator">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
  </Reference>
  <Reference Include="SampleClassLibrary">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

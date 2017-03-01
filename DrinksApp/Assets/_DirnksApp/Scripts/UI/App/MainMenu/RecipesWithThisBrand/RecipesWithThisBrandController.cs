@@ -38,13 +38,30 @@ public class RecipesWithThisBrandController : MonoBehaviour {
 
 	void OnEnable()
 	{
-		if(AppManager.Instance.isForCollectionRecipe == false)
-			BrandName.text = AppManager.Instance.BrandNameStr;
+		if(AppManager.Instance.isInternetAvailable)
+		{
+			if(AppManager.Instance.isForCollectionRecipe == false)
+				BrandName.text = AppManager.Instance.BrandNameStr;
+			else
+				BrandName.text = AppManager.Instance.collectionName;
+			
+			CollectionsAPICalls ();
+			CollectionReceipeAPICalls ();
+		}
 		else
-			BrandName.text = AppManager.Instance.collectionName;
-		
-		CollectionsAPICalls ();
-		CollectionReceipeAPICalls ();
+		{
+			if(AppManager.Instance.isForCollectionRecipe == false)
+				BrandName.text = AppManager.Instance.BrandNameStr;
+			else
+				BrandName.text = AppManager.Instance.collectionName;
+
+//			CollectionsAPICalls ();
+//			CollectionReceipeAPICalls ();
+			AppManager.Instance.ReadFileOfflineFeatureCollectionDetails();
+			this.DisplayOfflineFeatureCollection(AppManager.Instance.offlineFeatureCollectionDetails);
+			AppManager.Instance.ReadFileOfflineRecipeDetails();
+			this.DisplayOfflineRecipeDetails(AppManager.Instance.offlineRecipeDetails);
+		}
 	}
 	
 	// Update is called once per frame
@@ -99,6 +116,19 @@ public class RecipesWithThisBrandController : MonoBehaviour {
 			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
 			collectionBrandGameObject [count].transform.GetComponent<Brand> ().InitBrand (brand);
+			count++;
+		}
+	}
+	void DisplayOfflineFeatureCollection(List<SeralizedClassServer.OfflineFeatureCollectionDetails> collectionBrandList)
+	{
+		clearGrid(collectionBrandScrollTransform);
+		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
+		int count = 0;
+		foreach(SeralizedClassServer.OfflineFeatureCollectionDetails brand in collectionBrandList)
+		{
+			collectionBrandGameObject[count] = Instantiate(collectionBrandPrefab,  Vector3.zero, Quaternion.identity) as GameObject;
+			collectionBrandGameObject [count].transform.SetParent (collectionBrandScrollTransform.transform, false);
+			collectionBrandGameObject [count].transform.GetComponent<Brand> ().InitBrand1 (brand);
 			count++;
 		}
 	}
@@ -183,6 +213,20 @@ public class RecipesWithThisBrandController : MonoBehaviour {
 			collectionBrandGameObject[count] = Instantiate(collectionReceipePrefab,  Vector3.zero, Quaternion.identity) as GameObject;
 			collectionBrandGameObject [count].transform.SetParent (collectionReceipeScrollTrandform.transform, false);
 			collectionBrandGameObject [count].transform.GetComponent<BrandRecipes> ().InitBrand (brand, this);
+			count++;
+		}
+	}
+	void DisplayOfflineRecipeDetails(List<SeralizedClassServer.OfflineRecipeDetails> collectionBrandList)
+	{
+		clearGrid(collectionReceipeScrollTrandform);
+
+		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
+		int count = 0;
+		foreach(SeralizedClassServer.OfflineRecipeDetails brand in collectionBrandList)
+		{
+			collectionBrandGameObject[count] = Instantiate(collectionReceipePrefab,  Vector3.zero, Quaternion.identity) as GameObject;
+			collectionBrandGameObject [count].transform.SetParent (collectionReceipeScrollTrandform.transform, false);
+			collectionBrandGameObject [count].transform.GetComponent<BrandRecipes> ().InitBrand1 (brand, this,count);
 			count++;
 		}
 	}
