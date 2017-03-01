@@ -37,11 +37,13 @@ public class ShakeController : MonoBehaviour {
 
 	void OnEnable()
 	{
-		nextButtton.interactable = false;
 	}
 
 	// Use this for initialization
 	void Start () {
+		if(!Application.isEditor)
+			nextButtton.interactable = false;
+		
 		shakeDetectionThreshold *= shakeDetectionThreshold;
 		lowPassValue = Input.acceleration;
 	}

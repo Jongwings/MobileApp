@@ -1,6 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Game/ServeController.cs">
+    <Files>
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Manager/AppManager.cs" Line="168" Column="2" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/SocialManager.cs" Line="134" Column="100" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Game/ServeController.cs" Line="171" Column="26" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Collections/Brand.cs" Line="17" Column="23" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/Game/ShakeController.cs" Line="11" Column="27" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/App/MainMenu/KnowYourDrink/BrandDetails/BrandDetails.cs" Line="50" Column="2" />
+      <File FileName="Assets/_DirnksApp/Scripts/UI/SplashScreen/SplashScreen.cs" Line="243" Column="6" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

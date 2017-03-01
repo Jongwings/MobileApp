@@ -86,4 +86,9 @@ public class RecipeDetailsController : MonoBehaviour {
 		MainMenuSlideManager.Instance.RecipeRatingPanel.SetActive(true);
 
 	}
+
+	public void OnClickShareButton()
+	{
+		SocialManager.Instance.FaceBookShare();
+	}
 }

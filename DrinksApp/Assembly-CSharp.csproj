@@ -592,7 +592,7 @@
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\LogOut\LogOutHanduler.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Manager\MainMenuSlideManager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Profile\ProfileHanduler.cs" />
-     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\SocialMAnager.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\SocialManager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\AppUpdatesPanel.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\LogoutPopUpMessage.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\PopUpMessage.cs" />

@@ -8,6 +8,8 @@ public class ServeController : MonoBehaviour {
 	public InputField recipeInputField;
 	public GameObject serveText;
 	public GameObject celebrationImage;
+	public GameObject serveBtn;
+
 	public Button serveButton;
 
 	[Header("Spl One")]
@@ -165,5 +167,13 @@ public class ServeController : MonoBehaviour {
 	{
 		celebrationImage.gameObject.SetActive(true);
 		serveText.gameObject.SetActive(false);
+		serveBtn.gameObject.SetActive(false);
+		Invoke("GlobalShare", 1);//this will happen after 2 seconds
+
 	}
+
+	void GlobalShare ()
+	{
+		AppManager.Instance.globalShare("fdhsdfsd jfhksdjhf kjsdhkjfhk sjdh");
+	} 
 }

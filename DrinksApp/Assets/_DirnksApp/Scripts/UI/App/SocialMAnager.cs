@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 
 
-public class SocialMAnager : MonoBehaviour {
+public class SocialManager : MonoBehaviour {
 
-	public static SocialMAnager Instance;
+	public static SocialManager Instance;
 
 	// Use this for initialization
 	void Start () {
@@ -153,12 +153,16 @@ public class SocialMAnager : MonoBehaviour {
 
 	public void FaceBookShare()
 	{
-		var snap = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-		snap.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-		snap.Apply();
-		var screenshot = snap.EncodeToPNG();
 
-		int i = UnityEngine.Random.Range (0, 2);
+		var width = Screen.width;
+		var height = Screen.height;
+		var texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+		texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+		texture.Apply();
+		var screenshot = texture.EncodeToPNG();
+		GameObject.Destroy(texture);
+
+//		int i = UnityEngine.Random.Range (0, 2);
 
 		var wwwForm = new WWWForm();
 		wwwForm.AddBinaryData("image", screenshot, "picture.png");
@@ -170,7 +174,11 @@ public class SocialMAnager : MonoBehaviour {
 	public void CallbackUploadImage(IResult result)
 	{
 		if (result.Error == null) {
+			AppManager.Instance.ShowMessage("Recipe Shared Successfully",PopUpMessage.eMessageType.Normal);
 		}
+		else
+			AppManager.Instance.ShowMessage("please check the network connection",PopUpMessage.eMessageType.Error);
+		
 	}
 
 

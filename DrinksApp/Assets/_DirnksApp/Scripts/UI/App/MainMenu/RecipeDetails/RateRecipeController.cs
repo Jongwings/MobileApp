@@ -109,7 +109,15 @@ public class RateRecipeController : MonoBehaviour {
 		MainMenuSlideManager.Instance.RecipeRatingPanel.SetActive(false);
 		MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(true);
 	}
-
+	public void OnClickShareButton()
+	{
+		SocialManager.Instance.FaceBookShare();
+	}
+	public void OnClickDrinkRecipeButton()
+	{
+		MainMenuSlideManager.Instance.RecipeRatingPanel.SetActive(false);
+		MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(true);
+	}
 	public void RateButtonCicked1()
 	{
 		RateButton1.gameObject.GetComponent<Image> ().sprite = starSpr2;
