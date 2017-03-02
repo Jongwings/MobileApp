@@ -29,7 +29,7 @@ public class PostRecipe : MonoBehaviour {
 
 	public void OnClickShareFaceBook()
 	{
-		SocialManager.Instance.FaceBookShare();
+		SocialHanduler.Instance.FaceBookShare();
 	}
 
 	public void OnClickShareTwitter()

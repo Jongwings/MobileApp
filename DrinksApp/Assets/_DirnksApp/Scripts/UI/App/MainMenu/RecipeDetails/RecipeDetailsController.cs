@@ -89,6 +89,6 @@ public class RecipeDetailsController : MonoBehaviour {
 
 	public void OnClickShareButton()
 	{
-		SocialManager.Instance.FaceBookShare();
+		SocialHanduler.Instance.FaceBookShare();
 	}
 }

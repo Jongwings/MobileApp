@@ -111,7 +111,7 @@ public class RateRecipeController : MonoBehaviour {
 	}
 	public void OnClickShareButton()
 	{
-		SocialManager.Instance.FaceBookShare();
+		SocialHanduler.Instance.FaceBookShare();
 	}
 	public void OnClickDrinkRecipeButton()
 	{

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CSharp-firstpass.csproj", "{FE6F14CF-B88F-EEDB-C695-23806CC47514}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CSharp.csproj", "{9AD80EFF-1FBB-E182-BED0-00F2116B2DE6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CSharp-Editor.csproj", "{342AAE1D-7FEE-CCEE-B139-22B57482E42D}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE6F14CF-B88F-EEDB-C695-23806CC47514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6F14CF-B88F-EEDB-C695-23806CC47514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6F14CF-B88F-EEDB-C695-23806CC47514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6F14CF-B88F-EEDB-C695-23806CC47514}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AD80EFF-1FBB-E182-BED0-00F2116B2DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9AD80EFF-1FBB-E182-BED0-00F2116B2DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AD80EFF-1FBB-E182-BED0-00F2116B2DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
