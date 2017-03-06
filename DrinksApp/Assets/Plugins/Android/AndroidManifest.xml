@@ -1,8 +1,9 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.unity3d.player" android:installLocation="preferExternal" android:versionCode="1" android:versionName="1.0">
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
   <application android:allowBackup="true" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" android:icon="@drawable/app_icon" android:label="@string/app_name" android:debuggable="true" android:name="io.fabric.unity.android.FabricApplication">
-    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:label="@string/app_name">
+    <activity android:name="com.reignstudios.reignnative.ReignUnityActivity" android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -11,6 +12,41 @@
       <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
       <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
     </activity>
+    <!-- Reign Plugin Activity -->
+    <!-- NOTE: Set your games orientation via (android:screenOrientation)! -->
+    <!-- Screen Orientation docs: http://developer.android.com/guide/topics/manifest/activity-element.html -->
+    <!--		<activity android:name="com.reignstudios.reignnative.ReignUnityActivity" android:launchMode="standard" android:screenOrientation="landscape" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.unity3d.player" android:installLocation="preferExternal" android:versionCode="1" android:versionName="1.0">
+  <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
+  <application android:allowBackup="true" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" android:icon="@drawable/app_icon" android:label="@string/app_name" android:debuggable="true" android:name="io.fabric.unity.android.FabricApplication">
+    <activity android:name="com.reignstudios.reignnative.ReignUnityActivity" android:label="@string/app_name">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+      </intent-filter>
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+      <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
+    </activity>
+
+
+   	<!-- Reign Plugin Activity -->
+		<!-- NOTE: Set your games orientation via (android:screenOrientation)! -->
+		<!-- Screen Orientation docs: http://developer.android.com/guide/topics/manifest/activity-element.html -->
+<!--		<activity android:name="com.reignstudios.reignnative.ReignUnityActivity" android:launchMode="standard" android:screenOrientation="landscape" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+>>>>>>> origin/master
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			<meta-data android:name="android.app.lib_name" android:value="unity" />
+			<meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true"/>
+		</activity>
+<<<<<<< HEAD
+-->
+    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
     <activity android:name="com.facebook.unity.FBUnityLoginActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
     <activity android:name="com.facebook.unity.FBUnityDialogsActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
     <activity android:name="com.facebook.LoginActivity" android:configChanges="keyboardHidden|orientation" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
@@ -28,6 +64,29 @@
     <receiver android:process=":remote" android:name="com.sportswizz.sportsqwizz.UnityNotificationManager">
     </receiver>
     <!-- end -->
+=======
+-->
+
+		    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+    <activity android:name="com.facebook.unity.FBUnityLoginActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <activity android:name="com.facebook.unity.FBUnityDialogsActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <activity android:name="com.facebook.LoginActivity" android:configChanges="keyboardHidden|orientation" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <activity android:name="com.facebook.unity.FBUnityAppLinkActivity" android:exported="true" />
+    <activity android:name="com.facebook.unity.FBUnityDeepLinkingActivity" android:exported="true" />
+    <activity android:name="com.facebook.unity.FBUnityGameRequestActivity" />
+    <activity android:name="com.facebook.unity.FBUnityCreateGameGroupActivity" />
+    <activity android:name="com.facebook.unity.FBUnityJoinGameGroupActivity" />
+    <activity android:name="com.facebook.unity.AppInviteDialogActivity" />
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb751182848380857" />
+    <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider751182848380857" android:exported="true" />
+    <activity android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:label="@string/app_name" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <!-- NOTIFY java -->
+    <!--    <receiver  android:name="UnityNotificationManager"></receiver>-->
+    <receiver android:process=":remote" android:name="com.sportswizz.sportsqwizz.UnityNotificationManager">
+    </receiver>
+    <!-- end -->
+>>>>>>> origin/master
     <!-- Android GCM Plugin
        
         <receiver android:name="com.kskkbys.unitygcmplugin.UnityGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
@@ -38,6 +97,7 @@
             </intent-filter>
         </receiver>
         <service android:name="com.kskkbys.unitygcmplugin.UnityGCMIntentService" />
+<<<<<<< HEAD
         -->
     <!--FIREBASE START-->
     <service android:name="com.google.firebase.quickstart.fcm.MyFirebaseMessagingService">
@@ -64,4 +124,47 @@
   <uses-permission android:name="android.permission.VIBRATE" />
   <!-- Uncomment to add billing for in-app purchase ads -->
   <!--<uses-permission android:name="com.android.vending.BILLING"/> -->
+  <!-- Required for Samsung IAP -->
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <!-- Required for Amazon IAP Testing and Camera -->
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <!-- May be Required for some devices -->
+  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="com.android.vending.BILLING" />
+=======
+        -->
+    <!--FIREBASE START-->
+    <service android:name="com.google.firebase.quickstart.fcm.MyFirebaseMessagingService">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <service android:name="com.google.firebase.quickstart.fcm.MyFirebaseInstanceIDService">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <!--FIREBASE END-->
+  </application>
+  <!-- Android GCM Plugin -->
+  <!-- Rewite app package name! -->
+  <permission android:name="com.sportswizz.sportsqwizz.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+  <uses-permission android:name="com.sportswizz.sportsqwizz.permission.C2D_MESSAGE" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  <!-- Android GCM Plugin -->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <!--  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+  <uses-permission android:name="android.permission.VIBRATE" />
+  <!-- Uncomment to add billing for in-app purchase ads -->
+  <!--<uses-permission android:name="com.android.vending.BILLING"/> -->
+  <!-- Required for Samsung IAP -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!-- Required for Amazon IAP Testing and Camera -->
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<!-- May be Required for some devices -->
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+>>>>>>> origin/master
 </manifest>

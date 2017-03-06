@@ -90,6 +90,7 @@ public class LogoutPopUpMessage : MonoBehaviour {
 			}
 
 			ClosePopUp ();
+			PostRecipe.Instance.postReciepeApiCall();
 		}
 
 	}

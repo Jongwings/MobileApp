@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Fabric.Twitter;
+//using Fabric.Twitter;
 using Facebook.Unity;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -24,7 +24,7 @@ public class SocialManager : MonoBehaviour {
 
 
 	public void TwitterLogin() {
-		startLogin();
+//		startLogin();
 	}
 
 	public void TwitterSignin(string data)
@@ -41,7 +41,7 @@ public class SocialManager : MonoBehaviour {
 	{
 		//serverLoginController.GetUserLoginWithTwitter(twitterid,twitterScreenName);
 	}
-
+	/*
 	public void startLogin () {
 		TwitterSession session = Twitter.Session;
 		Twitter.LogIn (LoginComplete, LoginFailure);
@@ -108,7 +108,7 @@ public class SocialManager : MonoBehaviour {
 		}
 
 	}
-
+	*/
 	public void TakeScreenShotAndShare()
 	{
 		Texture2D screeshot = new Texture2D (480, 320, TextureFormat.RGB24, false);

@@ -96,6 +96,7 @@ public class RecipesWithThisBrandController : MonoBehaviour {
 	{
 		yield return www;
 		if (www.error == null) {
+			Debug.Log ("CollectionServerCallback Called");
 			Debug.Log (www.text);
 			string temp = www.text;
 			List<SeralizedClassServer.CollectionBrand> categoryList = new List<SeralizedClassServer.CollectionBrand> ();
@@ -135,12 +136,24 @@ public class RecipesWithThisBrandController : MonoBehaviour {
 
 	public void CollectionReceipeAPICalls()
 	{
-		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_Recipe;
+		if(AppManager.Instance.isForCollectionRecipe == false)
+		{
+			string url = AppServerConstants.BaseURL+AppServerConstants.LIST_Recipe;
+			WWWForm wwwForm = new WWWForm ();
+			wwwForm.AddField ("brand_id", AppManager.Instance.BrandId);
+			WWW www = new WWW (url, wwwForm);
+			StartCoroutine (CollectionReceipeServerCallback (www));
 
-		WWWForm wwwForm = new WWWForm ();
-		wwwForm.AddField ("brand_id", AppManager.Instance.BrandId);
-		WWW www = new WWW (url, wwwForm);
-		StartCoroutine (CollectionReceipeServerCallback (www));
+		}
+		else
+		{
+			string url = AppServerConstants.BaseURL+AppServerConstants.LIST_COLLECTION;
+			WWWForm wwwForm = new WWWForm ();
+			wwwForm.AddField ("collection_id", AppManager.Instance.BrandId);
+			WWW www = new WWW (url, wwwForm);
+			StartCoroutine (CollectionReceipeServerCallback1 (www));
+
+		}
 	}
 
 	IEnumerator CollectionReceipeServerCallback (WWW www)
@@ -154,6 +167,20 @@ public class RecipesWithThisBrandController : MonoBehaviour {
 
 			//Debug.Log (JsonConvert.SerializeObject (newCategory));
 			DisplayCollectionBrands1 (categoryList);
+		}
+	}
+
+	IEnumerator CollectionReceipeServerCallback1 (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			string temp = www.text;
+			List<SeralizedClassServer.CollectionsRecipesList> categoryList = new List<SeralizedClassServer.CollectionsRecipesList> ();
+			categoryList = JsonConvert.DeserializeObject<List<SeralizedClassServer.CollectionsRecipesList>> (temp);
+
+			//Debug.Log (JsonConvert.SerializeObject (newCategory));
+			DisplayCollectionBrands2 (categoryList);
 		}
 	}
 
@@ -201,7 +228,20 @@ public class RecipesWithThisBrandController : MonoBehaviour {
 ////
 ////		TestingAppManager.Instance.ShowLoading (false);
 //	} 
+	void DisplayCollectionBrands2(List<SeralizedClassServer.CollectionsRecipesList> collectionBrandList)
+	{
+		clearGrid(collectionReceipeScrollTrandform);
 
+		GameObject[] collectionBrandGameObject = new GameObject[collectionBrandList.Count];
+		int count = 0;
+		foreach(SeralizedClassServer.CollectionsRecipesList brand in collectionBrandList)
+		{
+			collectionBrandGameObject[count] = Instantiate(collectionReceipePrefab,  Vector3.zero, Quaternion.identity) as GameObject;
+			collectionBrandGameObject [count].transform.SetParent (collectionReceipeScrollTrandform.transform, false);
+			collectionBrandGameObject [count].transform.GetComponent<BrandRecipes> ().InitBrand2 (brand, this);
+			count++;
+		}
+	}
 	void DisplayCollectionBrands1(List<SeralizedClassServer.BrandRecipesList> collectionBrandList)
 	{
 		clearGrid(collectionReceipeScrollTrandform);

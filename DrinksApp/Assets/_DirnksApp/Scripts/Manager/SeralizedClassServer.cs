@@ -106,6 +106,17 @@ public class SeralizedClassServer
 	}
 
 	[Serializable]
+	public class CollectionsRecipesList
+	{
+		public string recipes_id { get; set; }
+		public string collection_name { get; set; }
+		public string recipes_name { get; set; }
+		public string ingredients { get; set; }
+		public string preparation { get; set; }
+		public string recipes_image { get; set; }
+	}
+
+	[Serializable]
 	public class SearchDrinkListOfRecipes
 	{
 		public string returnvalue { get; set; }
@@ -186,6 +197,12 @@ public class SeralizedClassServer
 		public string brand_title3 { get; set; }
 		public string brand_des3 { get; set; }
 		public string brand_id { get; set; }
+	}
+
+	[Serializable]
+	public class RecipeRateAndShare
+	{
+		public string returnvalue { get; set; }
 	}
 
 	[Serializable]

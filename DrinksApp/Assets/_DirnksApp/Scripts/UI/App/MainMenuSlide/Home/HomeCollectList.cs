@@ -49,6 +49,9 @@ public class HomeCollectList : MonoBehaviour {
 	{
 		if(AppManager.Instance.isInternetAvailable)
 		{
+			print("ID1:" + brand.collection_id);
+			print("collection_name:" + brand.collection_name);
+			print("recipes_image:" + brand.recipes_image);
 			AppManager.Instance.isForCollectionRecipe = true;
 			AppManager.Instance.BrandId = brand.collection_id;
 			AppManager.Instance.collectionName = brand.collection_name;
@@ -57,6 +60,7 @@ public class HomeCollectList : MonoBehaviour {
 		}
 		else
 		{
+			print("ID2:" + brand1.CollectionID);
 			AppManager.Instance.isForCollectionRecipe = true;
 			AppManager.Instance.BrandId = brand1.CollectionID;
 			AppManager.Instance.collectionName = brand1.CollectionName;

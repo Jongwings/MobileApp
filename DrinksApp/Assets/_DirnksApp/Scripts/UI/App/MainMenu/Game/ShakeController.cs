@@ -20,6 +20,9 @@ public class ShakeController : MonoBehaviour {
 
 	bool isShakeDetected = false;
 
+	public AudioClip impact;
+	AudioSource audio;
+
 	public void OnclickBack()
 	{
 		GameMenuController.Instance.shakeUPDrinksPanel.SetActive (false);
@@ -40,7 +43,9 @@ public class ShakeController : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	public void Start()
+	{
+		audio = GetComponent<AudioSource>();
 		if(!Application.isEditor)
 			nextButtton.interactable = false;
 		
@@ -61,6 +66,7 @@ public class ShakeController : MonoBehaviour {
 			isShakeDetected = true;
 			Invoke("ResetShakeDetect", 2);//this will happen after 3 seconds
 			nextButtton.interactable = true;
+			audio.PlayOneShot(impact, 0.7F);
 
 			//Set the material's texture to the current value of the frameCounter variable  
 			//		goMaterial.mainTexture = textures[frameCounter];

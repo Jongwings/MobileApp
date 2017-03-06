@@ -55,7 +55,7 @@ public class ProfileHanduler : MonoBehaviour {
 
 	// Update is called once per frame
 	void OnClickUpdate () {
-		ProfileUpdateAPICalls ();
+//		ProfileUpdateAPICalls ();
 	}
 	//edit-user.php?name=%@&email=%@&user_id=%@
 
@@ -93,7 +93,6 @@ public class ProfileHanduler : MonoBehaviour {
 
 		} else {
 			Debug.Log (www.error);
-
 			AppManager.Instance.ShowMessage (Global.emailLoginWrong,  PopUpMessage.eMessageType.Error);
 		}
 	}

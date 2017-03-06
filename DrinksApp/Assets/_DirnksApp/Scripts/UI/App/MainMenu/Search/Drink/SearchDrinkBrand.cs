@@ -46,6 +46,7 @@ public class SearchDrinkBrand : MonoBehaviour {
 	{
 		if(AppManager.Instance.isInternetAvailable)
 		{
+			AppManager.Instance.RecipeId = brand.recipes_id;
 			AppManager.Instance.RecipeNameStr = brand.recipes_name;
 			AppManager.Instance.RecipePreparationStr = brand.preparation;
 			AppManager.Instance.RecipeIngrdeientsStr = brand.ingredients;

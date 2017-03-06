@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="io.fabric.sdk.android.unity">
   <application>
-    <meta-data android:name="io.fabric.ApiKey" android:value="043ece85648eb8257d6e802983f06ea22e9763ad" />
+    <meta-data android:name="io.fabric.ApiKey" android:value="bb56f875d11ce1613ff2a4787e82ff5682c7a959" />
     <meta-data android:name="io.fabric.twittercore.key" android:value="hXpbk6w077H4Uqb5ZJMbW1lAu" />
     <meta-data android:name="io.fabric.twittercore.secret" android:value="zuolxvEpXo589UjFbpqIrxXAkwbIrNqfiuzvubOXN7nKZnSmYg" />
     <meta-data android:name="io.fabric.twittercore.qualified" android:value="com.twitter.sdk.android.core.TwitterCore" />

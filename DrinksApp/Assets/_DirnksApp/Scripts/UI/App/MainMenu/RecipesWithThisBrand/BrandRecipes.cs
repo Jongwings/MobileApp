@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 using Q.Utils;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 public class BrandRecipes : MonoBehaviour {
 
 	public Image brandIcon;
@@ -9,10 +12,14 @@ public class BrandRecipes : MonoBehaviour {
 	[HideInInspector]
 	public SeralizedClassServer.BrandRecipesList brand;
 	public SeralizedClassServer.OfflineRecipeDetails brand1;
+	public SeralizedClassServer.CollectionsRecipesList brand2;
 	public RecipesWithThisBrandController recipesWithThisBrandController;
+
+	bool isForCollection = false;
 
 	public void InitBrand(SeralizedClassServer.BrandRecipesList collectionBrand, RecipesWithThisBrandController mCollectionController)
 	{
+		isForCollection = false;
 		recipesWithThisBrandController = mCollectionController;
 		brand = collectionBrand;
 		brandName.text = collectionBrand.recipes_name;
@@ -24,6 +31,14 @@ public class BrandRecipes : MonoBehaviour {
 		brand1 = collectionBrand;
 		brandName.text = collectionBrand.RecipeName;
 		brandIcon.sprite = AppManager.Instance.RecipeOfflineImages[aIndex];
+	}
+	public void InitBrand2(SeralizedClassServer.CollectionsRecipesList collectionBrand, RecipesWithThisBrandController mCollectionController)
+	{
+		isForCollection = true;
+		recipesWithThisBrandController = mCollectionController;
+		brand2 = collectionBrand;
+		brandName.text = collectionBrand.recipes_name;
+		StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+collectionBrand.recipes_image);
 	}
 
 	IEnumerator LoadImage (string url)
@@ -48,26 +63,59 @@ public class BrandRecipes : MonoBehaviour {
 	{
 		if(AppManager.Instance.isInternetAvailable)
 		{
-			AppManager.Instance.RecipeNameStr = brand.recipes_name;
-			AppManager.Instance.RecipePreparationStr = brand.preparation;
-			AppManager.Instance.RecipeIngrdeientsStr = brand.ingredients;
-			AppManager.Instance.RecipeImageStr = brand.recipes_image;
-			AppManager.Instance.RecipeRating = brand.rating.ToString();
-			MainMenuSlideManager.Instance.InnerPanel.SetActive (true);
-			MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(true);
+			this.aGetRatingInformation();
+			/*
+			if(isForCollection == false)
+			{
+				AppManager.Instance.RecipeId = brand.recipes_id;
+				AppManager.Instance.RecipeNameStr = brand.recipes_name;
+				AppManager.Instance.RecipePreparationStr = brand.preparation;
+				AppManager.Instance.RecipeIngrdeientsStr = brand.ingredients;
+				AppManager.Instance.RecipeImageStr = brand.recipes_image;
+				AppManager.Instance.RecipeRating = brand.rating.ToString();
 
-			AppManager.Instance.isRecipeDetailsForCreation = false;
-			AppManager.Instance.isRecipeDetailsForFavourite = false;
-			AppManager.Instance.isRecipeDetailsForSearch = true;
+				MainMenuSlideManager.Instance.InnerPanel.SetActive (true);
+				MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(true);
 
-			//Hide Main Menus Slide Button
-			AppManager.Instance.MainMenuSlideButton.SetActive (false);
+				AppManager.Instance.isRecipeDetailsForCreation = false;
+				AppManager.Instance.isRecipeDetailsForFavourite = false;
+				AppManager.Instance.isRecipeDetailsForSearch = true;
 
-			//Hide Side Menu Screens Home, Profile , Favourite , Creaion, Logout
-			MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
+				//Hide Main Menus Slide Button
+				AppManager.Instance.MainMenuSlideButton.SetActive (false);
 
-			//Hide Tab Bar Buttons
-			AppManager.Instance.ToggleButtons.SetActive (false);
+				//Hide Side Menu Screens Home, Profile , Favourite , Creaion, Logout
+//				MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
+
+				//Hide Tab Bar Buttons
+				AppManager.Instance.ToggleButtons.SetActive (false);
+			}
+			else
+			{
+				AppManager.Instance.RecipeId = brand2.recipes_id;
+				AppManager.Instance.RecipeNameStr = brand2.recipes_name;
+				AppManager.Instance.RecipePreparationStr = brand2.preparation;
+				AppManager.Instance.RecipeIngrdeientsStr = brand2.ingredients;
+				AppManager.Instance.RecipeImageStr = brand2.recipes_image;
+				AppManager.Instance.RecipeRating = "";
+
+				MainMenuSlideManager.Instance.InnerPanel.SetActive (true);
+				MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(true);
+
+				AppManager.Instance.isRecipeDetailsForCreation = false;
+				AppManager.Instance.isRecipeDetailsForFavourite = false;
+				AppManager.Instance.isRecipeDetailsForSearch = true;
+
+				//Hide Main Menus Slide Button
+				AppManager.Instance.MainMenuSlideButton.SetActive (false);
+
+				//Hide Side Menu Screens Home, Profile , Favourite , Creaion, Logout
+//				MainMenuSlideManager.Instance.OnclickHideMainMenuSlideScreen ();
+
+				//Hide Tab Bar Buttons
+				AppManager.Instance.ToggleButtons.SetActive (false);
+			}
+			*/
 		}
 		else
 		{
@@ -93,5 +141,56 @@ public class BrandRecipes : MonoBehaviour {
 			AppManager.Instance.ToggleButtons.SetActive (false);
 		}
 
+	}
+
+	void aGetRatingInformation()
+	{
+		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_Recipe;
+		WWWForm wwwForm = new WWWForm ();
+
+		if(isForCollection == false)
+			wwwForm.AddField ("recipe_id", brand.recipes_id);
+		else
+			wwwForm.AddField ("recipe_id", brand2.recipes_id);
+		
+		wwwForm.AddField ("user_id", AppManager.Instance.UserId);
+
+		WWW www = new WWW (url, wwwForm);
+		StartCoroutine (RatingInfoSereverCallback (www));
+	}
+	IEnumerator RatingInfoSereverCallback (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			string temp = www.text;
+			List<SeralizedClassServer.MyRecipes> categoryList = new List<SeralizedClassServer.MyRecipes> ();
+			categoryList = JsonConvert.DeserializeObject<List<SeralizedClassServer.MyRecipes>> (temp);
+			bool isHaveRecord = false ;
+			foreach(SeralizedClassServer.MyRecipes brand in categoryList)
+			{
+
+				AppManager.Instance.RecipeId = brand.recipes_id;
+				AppManager.Instance.RecipeNameStr = brand.recipes_name;
+				AppManager.Instance.RecipePreparationStr = brand.preparation;
+				AppManager.Instance.RecipeIngrdeientsStr = brand.ingredients;
+				AppManager.Instance.RecipeImageStr = brand.recipes_image;
+				AppManager.Instance.RecipeRating = brand.rating;
+
+				MainMenuSlideManager.Instance.InnerPanel.SetActive (true);
+				MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(true);
+
+				AppManager.Instance.isRecipeDetailsForCreation = false;
+				AppManager.Instance.isRecipeDetailsForFavourite = false;
+				AppManager.Instance.isRecipeDetailsForSearch = true;
+
+				//Hide Main Menus Slide Button
+				AppManager.Instance.MainMenuSlideButton.SetActive (false);
+				//Hide Tab Bar Buttons
+				AppManager.Instance.ToggleButtons.SetActive (false);
+
+			}
+
+		} 
 	}
 }

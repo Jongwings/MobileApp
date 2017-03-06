@@ -32,7 +32,7 @@ namespace Facebook.Unity.Example
         private string shareLink = "https://developers.facebook.com/";
         private string shareTitle = "Link Title";
         private string shareDescription = "Link Description";
-        private string shareImage = "http://i.imgur.com/j4M7vCO.jpg";
+		private string shareImage = "http://www.jongwings.com/chivita/uploads/20161219-095156.png";
 
         // Custom Feed Share
         private string feedTo = string.Empty;
@@ -40,7 +40,7 @@ namespace Facebook.Unity.Example
         private string feedTitle = "Test Title";
         private string feedCaption = "Test Caption";
         private string feedDescription = "Test Description";
-        private string feedImage = "http://i.imgur.com/zkYlB.jpg";
+		private string feedImage = "http://www.jongwings.com/chivita/uploads/20161219-095156.png";
         private string feedMediaSource = string.Empty;
 
         protected override bool ShowDialogModeSelector()

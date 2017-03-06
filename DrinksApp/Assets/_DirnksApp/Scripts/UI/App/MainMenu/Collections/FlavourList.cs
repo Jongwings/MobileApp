@@ -38,7 +38,6 @@ public class FlavourList : MonoBehaviour {
 
 	public void onclickBrand()
 	{
-		Debug.Log ("OnClick Brand ------>"+brand.collection_name);
 		MainMenuSlideManager.Instance.InnerPanel.SetActive (true);
 		MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive (true);
 	}

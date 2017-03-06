@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine.UI;
 using System.IO;
+using System;
+using System.Linq;
+
+using Facebook.Unity;
+using Fabric.Twitter;
+
+
 public class AppManager : MonoBehaviour {
 
 	[Header("Chivita Login")]
@@ -31,6 +38,7 @@ public class AppManager : MonoBehaviour {
 	public GameObject ToggleButtons;
 	public PopUpMessage popUpMessage;
 	public LogoutPopUpMessage logoutPopUpMessage;
+	public ForCameraPopUp forCameraPopUp;
 
 	public static AppManager Instance;
 
@@ -85,12 +93,28 @@ public class AppManager : MonoBehaviour {
 //	public string[] BrandArray;
 	public List<string> BrandArray = new List<string>();
 
+	public Sprite SelectedPhoto;
+
 
 	private bool isProcessing = false;
 
+	private string status = "Ready";
+	private string lastResponse = string.Empty;
+
+	private string shareLink = "https://developers.facebook.com/";
+	private string shareTitle = "Chivita";
+	private string shareDescription = "Check out my favourite recipe";
+	private string shareImage = "http://www.jongwings.com/chivita/uploads/20161219-095156.png";
 
 
 	// Use this for initialization
+
+	void OnEnable()
+	{
+		this.FBInitialisation();
+		this.startLogin();
+	}
+
 	void Start () {
 		if (Instance == null) {
 			Instance = this;
@@ -116,6 +140,15 @@ public class AppManager : MonoBehaviour {
 
 		logoutPopUpMessage.PopUpPanelTwo (msg, msgType);
 		logoutPopUpMessage.gameObject.SetActive (true);
+	}
+
+
+	public void ShowMessage2 (string msg,  
+		ForCameraPopUp.eMessageType msgType = ForCameraPopUp.eMessageType.Normal)
+	{		
+
+		forCameraPopUp.PopUpPanelTwo (msg, msgType);
+		forCameraPopUp.gameObject.SetActive (true);
 	}
 	
 	// Update is called once per frame
@@ -198,5 +231,221 @@ public class AppManager : MonoBehaviour {
 
 		}
 		isProcessing = false;
+	}
+
+	public void FaceBookShare()
+	{
+		if (!FB.IsInitialized) {
+			// Initialize the Facebook SDK
+			FB.Init(LoginCompletion, OnHideUnity);
+		} else {
+			// Already initialized, signal an app activation App Event
+			StartCoroutine(ShareImageShot());
+		}
+
+	}
+	private void LoginCompletion() {
+		if (FB.IsLoggedIn)
+		{
+			FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email", "user_friends" }, LoginComplettion1);
+
+		}
+		else
+		{
+			print("User cancelled login");
+
+		}
+
+	}
+	private void LoginComplettion1(IResult result) {
+		if(FB.IsLoggedIn)
+			StartCoroutine(ShareImageShot());
+		else
+			print("User not login");
+		
+	}
+
+
+	IEnumerator ShareImageShot()
+	{
+		yield return new WaitForEndOfFrame();
+
+		var width = Screen.width;
+		var height = Screen.height;
+		var tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+
+		// Read screen contents into the texture
+		tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+		tex.Apply();
+		byte[] screenshot = tex.EncodeToPNG();
+
+		var wwwForm = new WWWForm();
+		wwwForm.AddBinaryData("image", screenshot, "InteractiveConsole.png");
+		wwwForm.AddField("message", "herp derp.  I did a thing!  Did I do this right?");
+		FB.API("me/photos", HttpMethod.POST, this.CallbackUploadImage, wwwForm);
+	}
+
+	public void CallbackUploadImage(IResult result)
+	{
+		if (result == null)
+		{
+			AppManager.Instance.ShowMessage("Null",PopUpMessage.eMessageType.Normal);
+			return;
+		}
+
+
+		// Some platforms return the empty string instead of null.
+		if (!string.IsNullOrEmpty(result.Error))
+		{
+
+			AppManager.Instance.ShowMessage(result.Error,PopUpMessage.eMessageType.Normal);
+
+		}
+		else if (result.Cancelled)
+		{
+			AppManager.Instance.ShowMessage(result.RawResult,PopUpMessage.eMessageType.Normal);
+
+		}
+		else if (!string.IsNullOrEmpty(result.RawResult))
+		{
+			AppManager.Instance.ShowMessage(result.RawResult,PopUpMessage.eMessageType.Normal);
+
+		}
+		else
+		{
+		}
+
+
+//		if (result.Error == null) {
+//			AppManager.Instance.ShowMessage("Recipe Shared Successfully",PopUpMessage.eMessageType.Normal);
+//		}
+//		else
+//			AppManager.Instance.ShowMessage("please check the network connection",PopUpMessage.eMessageType.Error);
+		
+
+	}
+
+	public void FBInitialisation()
+	{
+		FB.Init(this.OnInitComplete, this.OnHideUnity);
+
+	}
+	private void OnInitComplete()
+	{
+		this.Status = "Success - Check log for details";
+		this.LastResponse = "Success Response: OnInitComplete Called\n";
+		string logMessage = string.Format(
+			"OnInitCompleteCalled IsLoggedIn='{0}' IsInitialized='{1}'",
+			FB.IsLoggedIn,
+			FB.IsInitialized);
+		print("logMessage :" + logMessage);
+	}
+
+	private void OnHideUnity(bool isGameShown)
+	{
+		this.Status = "Success - Check log for details";
+		this.LastResponse = string.Format("Success Response: OnHideUnity Called {0}\n", isGameShown);
+		print("Is game shown: " + isGameShown);
+
+	}
+	public void fbCustomShare()
+	{
+		FB.ShareLink(
+			new Uri(this.shareLink),
+			this.shareTitle,
+			this.shareDescription,
+			new Uri(this.shareImage),
+			this.HandleResult);
+	}
+
+	protected void HandleResult(IResult result)
+	{
+		if (result == null)
+		{
+			this.LastResponse = "Null Response\n";
+			print("LastResponse: " + this.LastResponse);
+			return;
+		}
+
+		this.LastResponseTexture = null;
+
+		// Some platforms return the empty string instead of null.
+		if (!string.IsNullOrEmpty(result.Error))
+		{
+			this.Status = "Error - Check log for details";
+			this.LastResponse = "Error Response:\n" + result.Error;
+		}
+		else if (result.Cancelled)
+		{
+			this.Status = "Cancelled - Check log for details";
+			this.LastResponse = "Cancelled Response:\n" + result.RawResult;
+		}
+		else if (!string.IsNullOrEmpty(result.RawResult))
+		{
+			this.Status = "Success - Check log for details";
+			this.LastResponse = "Success Response:\n" + result.RawResult;
+		}
+		else
+		{
+			this.LastResponse = "Empty Response\n";
+		}
+
+		print("result: " + result.ToString());
+
+	}
+	protected string Status
+	{
+		get
+		{
+			return this.status;
+		}
+
+		set
+		{
+			this.status = value;
+		}
+	}
+
+	protected Texture2D LastResponseTexture { get; set; }
+
+	protected string LastResponse
+	{
+		get
+		{
+			return this.lastResponse;
+		}
+
+		set
+		{
+			this.lastResponse = value;
+		}
+	}
+	public void startLogin () {
+		TwitterSession session = Twitter.Session;
+		if (session == null) {
+			Twitter.LogIn (LoginComplete, LoginFailure);
+		} else {
+			LoginComplete (session);
+		}
+	}
+
+	public void LoginComplete (TwitterSession session) {
+		// Start composer or request email
+	}
+
+	public void LoginFailure (ApiError error) {
+		UnityEngine.Debug.Log ("code=" + error.code + " msg=" + error.message);
+	}
+
+	public void startComposer(String imageUri) {
+		TwitterSession session = Twitter.Session;
+
+		Card card = new AppCardBuilder()
+			.ImageUri (imageUri)
+			.GooglePlayId ("com.drinks.chivita")
+			.IPhoneId ("123456789")
+			.IPadId ("123456789");
+
+		Twitter.Compose (session, card);
 	}
 }

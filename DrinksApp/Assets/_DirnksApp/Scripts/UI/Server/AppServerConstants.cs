@@ -41,6 +41,18 @@ public class AppServerConstants  {
 	//Search Ingredients
 	public const string Search_Ingredients_Recipe = "app/ingredients-search.php?";
 
+	//Post Recipe
+	public const string Post_Recipe = "app/user_submission.php?";
+
+
+	//Rating Recipe
+	public const string Rating_Recipe = "app/rate.php?";
+
+	//Sharing Recipe
+	public const string Sharing_Recipe = "app/share.php?";
+
+
+
 
 
 }

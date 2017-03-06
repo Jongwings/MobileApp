@@ -36,6 +36,7 @@ public class SearchIngredientsRecipes  : MonoBehaviour {
 
 	public void onclickBrand()
 	{
+		AppManager.Instance.RecipeId = brand.recipes_id;
 		AppManager.Instance.RecipeNameStr = brand.recipes_name;
 		AppManager.Instance.RecipePreparationStr = brand.preparation;
 		AppManager.Instance.RecipeIngrdeientsStr = brand.ingredients;

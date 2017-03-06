@@ -99,7 +99,13 @@ public class AppMainMenuPanel : MonoBehaviour {
 	public void SwitchTogglePanel (eAppSubMenuPanel state)
 	{
 		currentSubPanel = state;
-		Debug.Log ("SwitchTogglePanel ----:" + state);
+
+		if(MainMenuSlideManager.Instance.InnerPanel.activeSelf)
+			MainMenuSlideManager.Instance.InnerPanel.SetActive(false);
+		
+		if(MainMenuSlideManager.Instance.DetailsPanel.activeSelf)
+			MainMenuSlideManager.Instance.DetailsPanel.SetActive(false);
+		
 		CollectionSelectionPanel.gameObject.SetActive (state == eAppSubMenuPanel.Collection);
 		AddYourDrinkPanel.gameObject.SetActive (state == eAppSubMenuPanel.AddYourDrink);
 		SearchPanel.gameObject.SetActive (state == eAppSubMenuPanel.Search);

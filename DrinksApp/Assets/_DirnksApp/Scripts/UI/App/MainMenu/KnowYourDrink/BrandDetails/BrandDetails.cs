@@ -81,6 +81,7 @@ public class BrandDetails : MonoBehaviour {
 
 	public void CollectionReceipeAPICalls()
 	{
+		print("Brand Id is:" + AppManager.Instance.BrandId);
 		string url = AppServerConstants.BaseURL+AppServerConstants.LIST_Recipe;
 
 		WWWForm wwwForm = new WWWForm ();
@@ -93,7 +94,7 @@ public class BrandDetails : MonoBehaviour {
 	{
 		yield return www;
 		if (www.error == null) {
-			Debug.Log (www.text);
+			print (www.text);
 			List<SeralizedClassServer.Login> result = new List<SeralizedClassServer.Login> ();
 			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.Login>> (www.text);
 			if (result[0].returnvalue == "No records found") {

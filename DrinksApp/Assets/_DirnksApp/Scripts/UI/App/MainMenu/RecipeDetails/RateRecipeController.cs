@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 using Q.Utils;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class RateRecipeController : MonoBehaviour {
 
@@ -22,7 +24,6 @@ public class RateRecipeController : MonoBehaviour {
 	void OnEnable () {
 
 		this.RecipeName.text = AppManager.Instance.RecipeNameStr;
-
 		if(AppManager.Instance.isInternetAvailable)
 			StartCoroutine ("LoadImage", "http://www.jongwings.com/chivita/"+AppManager.Instance.RecipeImageStr);
 		else
@@ -106,12 +107,17 @@ public class RateRecipeController : MonoBehaviour {
 
 	public void OnClickBackButton()
 	{
+		AppManager.Instance.RecipeRating = "0";
 		MainMenuSlideManager.Instance.RecipeRatingPanel.SetActive(false);
 		MainMenuSlideManager.Instance.RecipeDetailsPanel.SetActive(true);
 	}
 	public void OnClickShareButton()
 	{
-		SocialManager.Instance.FaceBookShare();
+<<<<<<< HEAD
+		AppManager.Instance.fbCustomShare();
+=======
+		SocialHanduler.Instance.FaceBookShare();
+>>>>>>> origin/master
 	}
 	public void OnClickDrinkRecipeButton()
 	{
@@ -125,6 +131,8 @@ public class RateRecipeController : MonoBehaviour {
 		RateButton3.gameObject.GetComponent<Image> ().sprite = starSpr1;
 		RateButton4.gameObject.GetComponent<Image> ().sprite = starSpr1;
 		RateButton5.gameObject.GetComponent<Image> ().sprite = starSpr1;
+		RateRecipeApiCalls ("1");
+
 	}
 
 	public void RateButtonCicked2()
@@ -134,6 +142,8 @@ public class RateRecipeController : MonoBehaviour {
 		RateButton3.gameObject.GetComponent<Image> ().sprite = starSpr1;
 		RateButton4.gameObject.GetComponent<Image> ().sprite = starSpr1;
 		RateButton5.gameObject.GetComponent<Image> ().sprite = starSpr1;
+		RateRecipeApiCalls ("2");
+
 	}
 
 	public void RateButtonCicked3()
@@ -143,6 +153,8 @@ public class RateRecipeController : MonoBehaviour {
 		RateButton3.gameObject.GetComponent<Image> ().sprite = starSpr2;
 		RateButton4.gameObject.GetComponent<Image> ().sprite = starSpr1;
 		RateButton5.gameObject.GetComponent<Image> ().sprite = starSpr1;
+		RateRecipeApiCalls ("3");
+
 	}
 
 	public void RateButtonCicked4()
@@ -152,6 +164,8 @@ public class RateRecipeController : MonoBehaviour {
 		RateButton3.gameObject.GetComponent<Image> ().sprite = starSpr2;
 		RateButton4.gameObject.GetComponent<Image> ().sprite = starSpr2;
 		RateButton5.gameObject.GetComponent<Image> ().sprite = starSpr1;
+		RateRecipeApiCalls ("4");
+
 	}
 
 	public void RateButtonCicked5()
@@ -161,5 +175,68 @@ public class RateRecipeController : MonoBehaviour {
 		RateButton3.gameObject.GetComponent<Image> ().sprite = starSpr2;
 		RateButton4.gameObject.GetComponent<Image> ().sprite = starSpr2;
 		RateButton5.gameObject.GetComponent<Image> ().sprite = starSpr2;
+		RateRecipeApiCalls ("5");
+
 	}
+	public void RateRecipeApiCalls(string aRating)
+	{
+		string url = AppServerConstants.BaseURL + AppServerConstants.Rating_Recipe;
+		WWWForm wwwForm = new WWWForm ();
+		wwwForm.AddField ("user_id", AppManager.Instance.UserId);
+		wwwForm.AddField ("recipe_id", AppManager.Instance.RecipeId);
+		wwwForm.AddField ("rating", aRating);
+
+		WWW www = new WWW (url, wwwForm);
+		StartCoroutine (RateRecipeApiSereverCallback (www));
+	}
+
+	IEnumerator RateRecipeApiSereverCallback (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			List<SeralizedClassServer.RecipeRateAndShare> result = new List<SeralizedClassServer.RecipeRateAndShare> ();
+			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.RecipeRateAndShare>> (www.text);
+			if (result[0].returnvalue == "Recipe rating successfully") {
+				this.ShareRecipeApiCalls();
+			}
+			else if (result[0].returnvalue == "Recipe rating updated") {
+				this.ShareRecipeApiCalls();
+			}else {
+				AppManager.Instance.ShowMessage (result[0].returnvalue,  PopUpMessage.eMessageType.Error);
+			}
+
+		} 
+	}
+
+	public void ShareRecipeApiCalls()
+	{
+		string url = AppServerConstants.BaseURL + AppServerConstants.Sharing_Recipe;
+		WWWForm wwwForm = new WWWForm ();
+		wwwForm.AddField ("user_id", AppManager.Instance.UserId);
+		wwwForm.AddField ("recipe_id", AppManager.Instance.RecipeId);
+
+		WWW www = new WWW (url, wwwForm);
+		StartCoroutine (ShareRecipeApiSereverCallback (www));
+	}
+	IEnumerator ShareRecipeApiSereverCallback (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			List<SeralizedClassServer.RecipeRateAndShare> result = new List<SeralizedClassServer.RecipeRateAndShare> ();
+			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.RecipeRateAndShare>> (www.text);
+
+
+			if (result[0].returnvalue == "Shared successfully") {
+				AppManager.Instance.ShowMessage ("Thanks for Rating",  PopUpMessage.eMessageType.Error);
+			}
+			else {
+				AppManager.Instance.ShowMessage (result[0].returnvalue,  PopUpMessage.eMessageType.Error);
+
+			}
+
+		} 
+	}
+
 }

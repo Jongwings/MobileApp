@@ -168,7 +168,7 @@ public class ServeController : MonoBehaviour {
 		celebrationImage.gameObject.SetActive(true);
 		serveText.gameObject.SetActive(false);
 		serveBtn.gameObject.SetActive(false);
-		Invoke("GlobalShare", 1);//this will happen after 2 seconds
+		Invoke("GlobalShare", 0.5f);//this will happen after 0.5 seconds
 
 	}
 
