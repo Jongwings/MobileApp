@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using UnityEngine;
 using System.Collections;
 using Reign.Plugin;
@@ -91,6 +92,8 @@ namespace Reign
 		}
 	}
 =======
+=======
+>>>>>>> origin/master
 ﻿using UnityEngine;
 using System.Collections;
 using Reign.Plugin;
@@ -182,5 +185,8 @@ namespace Reign
 			Debug.Log("Share not supported in this environment!");
 		}
 	}
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 }

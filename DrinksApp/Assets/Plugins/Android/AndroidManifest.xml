@@ -36,6 +36,9 @@
 		<!-- NOTE: Set your games orientation via (android:screenOrientation)! -->
 		<!-- Screen Orientation docs: http://developer.android.com/guide/topics/manifest/activity-element.html -->
 <!--		<activity android:name="com.reignstudios.reignnative.ReignUnityActivity" android:launchMode="standard" android:screenOrientation="landscape" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -44,6 +47,7 @@
 			<meta-data android:name="android.app.lib_name" android:value="unity" />
 			<meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true"/>
 		</activity>
+<<<<<<< HEAD
 <<<<<<< HEAD
 -->
     <activity android:name="com.unity3d.player.UnityPlayerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
@@ -65,6 +69,8 @@
     </receiver>
     <!-- end -->
 =======
+=======
+>>>>>>> origin/master
 -->
 
 		    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
@@ -166,5 +172,8 @@
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<!-- May be Required for some devices -->
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 </manifest>

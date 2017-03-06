@@ -90,7 +90,11 @@ public class RecipeDetailsController : MonoBehaviour {
 	public void OnClickShareButton()
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		AppManager.Instance.fbCustomShare();
+=======
+		SocialHanduler.Instance.FaceBookShare();
+>>>>>>> origin/master
 =======
 		SocialHanduler.Instance.FaceBookShare();
 >>>>>>> origin/master

@@ -642,6 +642,10 @@
      <None Include="Assets\Plugins\Android\res\values-vi\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\rounded_corners.xml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+     <None Include="Assets\Plugins\Android\proguard-project.txt" />
+>>>>>>> origin/master
 =======
      <None Include="Assets\Plugins\Android\proguard-project.txt" />
 >>>>>>> origin/master

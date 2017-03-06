@@ -1,6 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Visual Studio 2008
 
 Project("{6C91DA7B-2CBD-F5B4-8ED0-05F55BD8B81A}") = "DrinksApp", "Assembly-CSharp-firstpass.csproj", "{FE6F14CF-B88F-EEDB-C695-23806CC47514}"
@@ -13,6 +14,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CShar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CSharp.csproj", "{9AD80EFF-1FBB-E182-BED0-00F2116B2DE6}"
 EndProject
+=======
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CSharp-firstpass.csproj", "{FE6F14CF-B88F-EEDB-C695-23806CC47514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CSharp.csproj", "{9AD80EFF-1FBB-E182-BED0-00F2116B2DE6}"
+EndProject
+>>>>>>> origin/master
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinksApp", "Assembly-CSharp-Editor.csproj", "{342AAE1D-7FEE-CCEE-B139-22B57482E42D}"
 EndProject
 Global

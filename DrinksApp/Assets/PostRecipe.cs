@@ -36,7 +36,11 @@ public class PostRecipe : MonoBehaviour {
 	public void OnClickShareFaceBook()
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		AppManager.Instance.fbCustomShare();
+=======
+		SocialHanduler.Instance.FaceBookShare();
+>>>>>>> origin/master
 =======
 		SocialHanduler.Instance.FaceBookShare();
 >>>>>>> origin/master

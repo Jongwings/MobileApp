@@ -158,6 +158,10 @@
      <None Include="Assets\Plugins\Android\res\values-vi\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\rounded_corners.xml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+     <None Include="Assets\Plugins\Android\proguard-project.txt" />
+>>>>>>> origin/master
 =======
      <None Include="Assets\Plugins\Android\proguard-project.txt" />
 >>>>>>> origin/master
@@ -474,7 +478,11 @@
  </Reference>
  <Reference Include="Reign.EditorTools">
 <<<<<<< HEAD
+<<<<<<< HEAD
  <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Editor/Reign/Reign.EditorTools.dll</HintPath>
+=======
+ <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Editor/Reign/Reign.EditorTools.dll</HintPath>
+>>>>>>> origin/master
 =======
  <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Editor/Reign/Reign.EditorTools.dll</HintPath>
 >>>>>>> origin/master

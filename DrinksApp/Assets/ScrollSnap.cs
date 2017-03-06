@@ -92,7 +92,11 @@ public class ScrollSnap : UIBehaviour, IDragHandler, IEndDragHandler {
 	
 	public int LayoutElementCount() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		int count = 1;
+=======
+		int count = 0;
+>>>>>>> origin/master
 =======
 		int count = 0;
 >>>>>>> origin/master
@@ -212,7 +216,10 @@ public class ScrollSnap : UIBehaviour, IDragHandler, IEndDragHandler {
 	
 	void SetContentSize(int elementCount) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		print("elementCount : " + elementCount);
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 		content.sizeDelta = new Vector2(cellSize.x * elementCount, content.rect.height);
