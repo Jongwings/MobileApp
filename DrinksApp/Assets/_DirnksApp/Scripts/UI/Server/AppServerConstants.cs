@@ -51,7 +51,8 @@ public class AppServerConstants  {
 	//Sharing Recipe
 	public const string Sharing_Recipe = "app/share.php?";
 
-
+	//Sharing Recipe
+	public const string Screenshot_Upload = "app/app/img_upload.php";
 
 
 

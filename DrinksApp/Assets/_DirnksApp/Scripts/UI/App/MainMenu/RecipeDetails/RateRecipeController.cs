@@ -113,15 +113,7 @@ public class RateRecipeController : MonoBehaviour {
 	}
 	public void OnClickShareButton()
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
-		AppManager.Instance.fbCustomShare();
-=======
-		SocialHanduler.Instance.FaceBookShare();
->>>>>>> origin/master
-=======
-		SocialHanduler.Instance.FaceBookShare();
->>>>>>> origin/master
+		this.postScreenshotUploadApiCall();
 	}
 	public void OnClickDrinkRecipeButton()
 	{
@@ -241,6 +233,36 @@ public class RateRecipeController : MonoBehaviour {
 			}
 
 		} 
+	}
+
+	public void postScreenshotUploadApiCall()
+	{
+		Texture2D screenTexture = new Texture2D(Screen.width,Screen.height,TextureFormat.RGB24,true);
+		screenTexture.ReadPixels(new Rect(0f,0f,Screen.width,Screen.height),0,0);
+		screenTexture.Apply();
+
+		byte[] bytes = screenTexture.EncodeToPNG();
+
+		string url = AppServerConstants.BaseURL + AppServerConstants.Screenshot_Upload;
+		WWWForm wwwForm = new WWWForm ();
+		wwwForm.AddBinaryData("image", bytes, "ipodfile.png", "image/png");
+		WWW www = new WWW (url, wwwForm);
+		StartCoroutine (postScreenshotServerCallBack (www));
+	}
+
+	IEnumerator postScreenshotServerCallBack (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			List<SeralizedClassServer.PostScreenshot> result = new List<SeralizedClassServer.PostScreenshot> ();
+			result = JsonConvert.DeserializeObject<List<SeralizedClassServer.PostScreenshot>> (www.text);
+			print(result[0].returnvalue);
+			AppManager.Instance.fbCustomShare("uploads/manual-screen-short.png");
+
+
+		} else {
+		}
 	}
 
 }

@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<?xml version="1.0" encoding="utf-8"?>
-=======
 ﻿<?xml version="1.0" encoding="utf-8"?>
->>>>>>> origin/master
-=======
-﻿<?xml version="1.0" encoding="utf-8"?>
->>>>>>> origin/master
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,15 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_1;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
-=======
     <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_4;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE</DefineConstants>
->>>>>>> origin/master
-=======
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_4;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE</DefineConstants>
->>>>>>> origin/master
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -105,11 +89,6 @@
      <Compile Include="Assets\Plugins\Reign\Platforms\Android\Samsung_InAppPurchasePlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\Android\SocialPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\Android\StreamPlugin.cs" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/master
      <Compile Include="Assets\Plugins\Reign\Platforms\BB10\Common.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\BB10\EmailPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\BB10\InAppPurchasePlugin.cs" />
@@ -117,10 +96,6 @@
      <Compile Include="Assets\Plugins\Reign\Platforms\BB10\MessageBoxPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\BB10\SocialPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\BB10\StreamPlugin.cs" />
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
      <Compile Include="Assets\Plugins\Reign\Platforms\EditorRuntime\AdPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\EditorRuntime\EmailPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\EditorRuntime\InAppPurchasePlugin.cs" />
@@ -384,11 +359,6 @@
      <Compile Include="Assets\Plugins\Reign\Platforms\Shared\SharpZipLib\Zip\ZipInputStream.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\Shared\SharpZipLib\Zip\ZipNameTransform.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\Shared\SharpZipLib\Zip\ZipOutputStream.cs" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/master
      <Compile Include="Assets\Plugins\Reign\Platforms\iOS\AdMob_AdPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\iOS\AdMob_InterstitialAdPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\iOS\DFP_AdPlugin.cs" />
@@ -401,10 +371,6 @@
      <Compile Include="Assets\Plugins\Reign\Platforms\iOS\SocialPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\iOS\StreamPlugin.cs" />
      <Compile Include="Assets\Plugins\Reign\Platforms\iOS\iAd_AdPlugin.cs" />
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
      <Compile Include="Assets\Plugins\Reign\Services\InputExService.cs" />
      <Compile Include="Assets\Plugins\Reign\Services\ReignServices.cs" />
      <Compile Include="Assets\Plugins\Reign\Tools\PerPixelOrthoCamera.cs" />
@@ -423,14 +389,7 @@
      <None Include="Assets\Plugins\Android\res\values-fa\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-vi\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\rounded_corners.xml" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
      <None Include="Assets\Plugins\Android\proguard-project.txt" />
->>>>>>> origin/master
-=======
-     <None Include="Assets\Plugins\Android\proguard-project.txt" />
->>>>>>> origin/master
      <None Include="Assets\Plugins\Android\res\values-bn-rBD\common_strings.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed.xml" />
      <None Include="Assets\Plugins\Android\res\values-am\common_strings.xml" />
@@ -614,6 +573,7 @@
      <None Include="Assets\Plugins\Android\res\values\cast_ids.xml" />
      <None Include="Assets\Plugins\Android\res\values-gu\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values\common_strings.xml" />
+     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\res\values-lv\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-iw\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-ka-rGE\common_strings.xml" />
@@ -668,7 +628,6 @@
      <None Include="Assets\Plugins\Android\res\values-te-rIN\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-en-rAU\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-kk\strings.xml" />
-     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\res\values-nb\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-el\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\progressbar_middle.xml" />
@@ -724,30 +683,14 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="Analytics">
-<<<<<<< HEAD
-<<<<<<< HEAD
- <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
+ <Reference Include="SampleClassLibrary">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Validator">
  <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
  </Reference>
- <Reference Include="SampleClassLibrary">
- <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
-=======
-=======
->>>>>>> origin/master
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
- </Reference>
- <Reference Include="Validator">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
- </Reference>
- <Reference Include="SampleClassLibrary">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
+ <Reference Include="Analytics">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<?xml version="1.0" encoding="utf-8"?><resources><string name="com.crashlytics.android.build_id">98de3b17-d816-4f12-8e20-f84d3ec2958c</string></resources>
-=======
-<?xml version="1.0" encoding="utf-8"?><resources><string name="com.crashlytics.android.build_id">dc0f7441-ec0e-4c5f-9a45-f870e82bc7d0</string></resources>
->>>>>>> origin/master
-=======
-<?xml version="1.0" encoding="utf-8"?><resources><string name="com.crashlytics.android.build_id">dc0f7441-ec0e-4c5f-9a45-f870e82bc7d0</string></resources>
->>>>>>> origin/master
+<?xml version="1.0" encoding="utf-8"?><resources><string name="com.crashlytics.android.build_id">ee4e4050-fd02-437f-bc0f-0c7b93afd375</string></resources>

@@ -57,7 +57,6 @@ public class ProfileHanduler : MonoBehaviour {
 	void OnClickUpdate () {
 //		ProfileUpdateAPICalls ();
 	}
-	//edit-user.php?name=%@&email=%@&user_id=%@
 
 	public void ProfileUpdateAPICalls()
 	{

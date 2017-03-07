@@ -206,6 +206,12 @@ public class SeralizedClassServer
 	}
 
 	[Serializable]
+	public class PostScreenshot
+	{
+		public string returnvalue { get; set; }
+	}
+
+	[Serializable]
 	public class HomeCollectionList
 	{
 		public string collection_id;

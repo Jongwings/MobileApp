@@ -157,14 +157,7 @@
      <None Include="Assets\Plugins\Android\res\values-fa\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-vi\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\rounded_corners.xml" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
      <None Include="Assets\Plugins\Android\proguard-project.txt" />
->>>>>>> origin/master
-=======
-     <None Include="Assets\Plugins\Android\proguard-project.txt" />
->>>>>>> origin/master
      <None Include="Assets\Plugins\Android\res\values-bn-rBD\common_strings.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed.xml" />
      <None Include="Assets\Plugins\Android\res\values-am\common_strings.xml" />
@@ -348,6 +341,7 @@
      <None Include="Assets\Plugins\Android\res\values\cast_ids.xml" />
      <None Include="Assets\Plugins\Android\res\values-gu\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values\common_strings.xml" />
+     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\res\values-lv\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-iw\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-ka-rGE\common_strings.xml" />
@@ -402,7 +396,6 @@
      <None Include="Assets\Plugins\Android\res\values-te-rIN\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-en-rAU\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-kk\strings.xml" />
-     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\res\values-nb\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-el\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\progressbar_middle.xml" />
@@ -477,24 +470,10 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="Reign.EditorTools">
-<<<<<<< HEAD
-<<<<<<< HEAD
  <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Editor/Reign/Reign.EditorTools.dll</HintPath>
-=======
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Editor/Reign/Reign.EditorTools.dll</HintPath>
->>>>>>> origin/master
-=======
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Editor/Reign/Reign.EditorTools.dll</HintPath>
->>>>>>> origin/master
- </Reference>
- <Reference Include="Analytics">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
- </Reference>
- <Reference Include="Validator">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
  </Reference>
  <Reference Include="SampleClassLibrary">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -504,6 +483,12 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Validator">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
+ </Reference>
+ <Reference Include="Analytics">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

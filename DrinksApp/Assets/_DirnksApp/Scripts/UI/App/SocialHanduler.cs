@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Fabric.Twitter;
+//using Fabric.Twitter;
 using Facebook.Unity;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -47,88 +47,88 @@ public class SocialHanduler : MonoBehaviour {
 	}
 
 	public void startLogin () {
-		TwitterSession session = Twitter.Session;
-		Twitter.LogIn (LoginComplete, LoginFailure);
+//		TwitterSession session = Twitter.Session;
+//		Twitter.LogIn (LoginComplete, LoginFailure);
 	}
 
-	public void LoginComplete (TwitterSession session) {
-		// Start composer or request email
+//	public void LoginComplete (TwitterSession session) {
+//		// Start composer or request email
+//
+//		startRequestEmail();
+////		string username = session.userName;
+////		long id = session.id;
+////		TwitterUserName = session.userName;
+////		TwitterUserId = session.id.ToString();
+//
+//	}
+//
+//	public void LoginFailure (ApiError error) {
+//		//LoadingIndicatorManager.Hide();
+//		print("Twitter code=" + error.code + " msg=" + error.message);
+//		UnityEngine.Debug.Log ("code=" + error.code + " msg=" + error.message);
+//	}
+//
+//	public void TwitterLogout()
+//	{
+//		Twitter.LogOut ();
+//	}
+//
+//	public void startRequestEmail () {
+//		TwitterSession session = Twitter.Session;
+//		if (session != null) {
+//			Twitter.RequestEmail (session, requestEmailComplete, requestEmailFailure);
+//		} else {
+//			startLogin();
+//		}
+//	}
 
-		startRequestEmail();
-		string username = session.userName;
-		long id = session.id;
-//		TwitterUserName = session.userName;
-//		TwitterUserId = session.id.ToString();
-
-	}
-
-	public void LoginFailure (ApiError error) {
-		//LoadingIndicatorManager.Hide();
-		print("Twitter code=" + error.code + " msg=" + error.message);
-		UnityEngine.Debug.Log ("code=" + error.code + " msg=" + error.message);
-	}
-
-	public void TwitterLogout()
-	{
-		Twitter.LogOut ();
-	}
-
-	public void startRequestEmail () {
-		TwitterSession session = Twitter.Session;
-		if (session != null) {
-			Twitter.RequestEmail (session, requestEmailComplete, requestEmailFailure);
-		} else {
-			startLogin();
-		}
-	}
-
-	public void requestEmailComplete (string email) {
-		// Save email
-		string Email = email;
-
-	}
-
-	public void requestEmailFailure (ApiError error) {
-		print("Twitter code=" + error.code + " msg=" + error.message);
-		UnityEngine.Debug.Log ("code=" + error.code + " msg=" + error.message);
-	}
+//	public void requestEmailComplete (string email) {
+//		// Save email
+////		string Email = email;
+//
+//	}
+//
+//	public void requestEmailFailure (ApiError error) {
+//		print("Twitter code=" + error.code + " msg=" + error.message);
+//		UnityEngine.Debug.Log ("code=" + error.code + " msg=" + error.message);
+//	}
 
 
 
 
 	public void startComposer() {
 
-		StartCoroutine (TwitterShare ());
+//		StartCoroutine (TwitterShare ());
 	}
 
-	IEnumerator TwitterShare()
-	{
-		yield return new WaitForEndOfFrame();
-
-		// Save your image on designate path
-
-		var width = Screen.width;
-		var height = Screen.height;
-		var tex = new Texture2D(width, height, TextureFormat.RGB24, false);
-		// Read screen contents into the texture
-		tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
-		tex.Apply();
-		byte[] bytes = tex.EncodeToPNG();
-		string path = Application.persistentDataPath + "/MyImage.png";
-		File.WriteAllBytes(path, bytes);
-		TwitterSession session = Twitter.Session;
-		if (session != null) {
-			Card card = new AppCardBuilder()
-				.ImageUri (path)
-				.GooglePlayId ("com.drinks.chivita")
-				.IPhoneId ("123456789")
-				.IPadId ("123456789");
-
-			Twitter.Compose (session, card);
-		} else {
-			startLogin();
-		}
-	}
+//	IEnumerator TwitterShare()
+//	{
+//		yield return new WaitForEndOfFrame();
+//
+//		// Save your image on designate path
+//
+//		var width = Screen.width;
+//		var height = Screen.height;
+//		var tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+//		// Read screen contents into the texture
+//		tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+//		tex.Apply();
+//		byte[] bytes = tex.EncodeToPNG();
+//		string path = Application.persistentDataPath + "/MyImage.png";
+//		File.WriteAllBytes(path, bytes);
+//		TwitterSession session = Twitter.Session;
+//		if (session != null) {
+//			Card card = new AppCardBuilder()
+//				.ImageUri (path)
+//				.GooglePlayId ("com.drinks.chivita")
+//				.IPhoneId ("123456789")
+//				.IPadId ("123456789");
+//
+//			Twitter.Compose (session, card);
+//		} else {
+//			startLogin();
+//		}
+//	}
 
 	public void AndroidGlopalShare()
 	{

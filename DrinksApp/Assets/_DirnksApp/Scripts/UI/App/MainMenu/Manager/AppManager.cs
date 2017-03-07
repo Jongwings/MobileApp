@@ -104,7 +104,7 @@ public class AppManager : MonoBehaviour {
 	private string shareLink = "https://developers.facebook.com/";
 	private string shareTitle = "Chivita";
 	private string shareDescription = "Check out my favourite recipe";
-	private string shareImage = "http://www.jongwings.com/chivita/uploads/20161219-095156.png";
+	public string shareImage = "";
 
 
 	// Use this for initialization
@@ -348,8 +348,10 @@ public class AppManager : MonoBehaviour {
 		print("Is game shown: " + isGameShown);
 
 	}
-	public void fbCustomShare()
+	public void fbCustomShare(string ImageStr)
 	{
+		this.shareImage = "http://www.jongwings.com/chivita/" + ImageStr;
+		print(this.shareImage);
 		FB.ShareLink(
 			new Uri(this.shareLink),
 			this.shareTitle,

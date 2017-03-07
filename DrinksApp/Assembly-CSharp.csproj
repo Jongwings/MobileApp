@@ -539,7 +539,6 @@
      <Compile Include="Assets\_DirnksApp\Scripts\Common\LoadingImage.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Config\CurrentBundleVersion.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Jeba\DynamicGrid.cs" />
-     <Compile Include="Assets\_DirnksApp\Scripts\Jeba\SocialHanduler.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Jeba\checkinternetconnection.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Manager\SeralizedClassServer.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\Manager\TagConstant.cs" />
@@ -597,6 +596,7 @@
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Manager\MainMenuSlideManager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\MainMenuSlide\Profile\ProfileHanduler.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\App\SocialHanduler.cs" />
+     <Compile Include="Assets\_DirnksApp\Scripts\UI\App\SocialMAnager.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\AppUpdatesPanel.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\ForCameraPopUp.cs" />
      <Compile Include="Assets\_DirnksApp\Scripts\UI\MainMenu\Common\LogoutPopUpMessage.cs" />
@@ -641,14 +641,7 @@
      <None Include="Assets\Plugins\Android\res\values-fa\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-vi\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\rounded_corners.xml" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
      <None Include="Assets\Plugins\Android\proguard-project.txt" />
->>>>>>> origin/master
-=======
-     <None Include="Assets\Plugins\Android\proguard-project.txt" />
->>>>>>> origin/master
      <None Include="Assets\Plugins\Android\res\values-bn-rBD\common_strings.xml" />
      <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed.xml" />
      <None Include="Assets\Plugins\Android\res\values-am\common_strings.xml" />
@@ -832,6 +825,7 @@
      <None Include="Assets\Plugins\Android\res\values\cast_ids.xml" />
      <None Include="Assets\Plugins\Android\res\values-gu\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values\common_strings.xml" />
+     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\res\values-lv\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-iw\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-ka-rGE\common_strings.xml" />
@@ -886,7 +880,6 @@
      <None Include="Assets\Plugins\Android\res\values-te-rIN\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-en-rAU\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-kk\strings.xml" />
-     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\res\values-nb\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\values-el\common_strings.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\progressbar_middle.xml" />
@@ -942,14 +935,14 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="Analytics">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
+ <Reference Include="SampleClassLibrary">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Validator">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Validator.dll</HintPath>
  </Reference>
- <Reference Include="SampleClassLibrary">
- <HintPath>/Volumes/Development/Project/Jongwings/Unity/Repository/DrinksApp/Assets/JsonDotNet/Examples/Tests/TestModels/SampleClassLibrary.dll</HintPath>
+ <Reference Include="Analytics">
+ <HintPath>/Volumes/Data/Projects/Github/MobileApp/DrinksApp/Assets/Fabric/Managed/Analytics.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

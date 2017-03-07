@@ -19,7 +19,6 @@ public class SocialManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 
@@ -112,7 +111,6 @@ public class SocialManager : MonoBehaviour {
 	public void TakeScreenShotAndShare()
 	{
 		Texture2D screeshot = new Texture2D (480, 320, TextureFormat.RGB24, false);
-		Texture border = new Texture2D (2, 2, TextureFormat.RGB24, false);
 		screeshot.ReadPixels (new Rect (120, 98, 298, 198), 0, 0);
 		AndroidGlopalShare (screeshot);
 	}
